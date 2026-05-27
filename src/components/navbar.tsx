@@ -117,9 +117,11 @@ export function Navbar() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="outline" size="sm" className="border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10">
-              Demo
-            </Button>
+            <a href="/demo.html">
+              <Button variant="outline" size="sm" className="border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10">
+                Demo
+              </Button>
+            </a>
             <Button
               size="sm"
               className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90"
@@ -152,9 +154,11 @@ export function Navbar() {
                     </SheetClose>
                   ))}
                   <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-                    <Button variant="outline" className="border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10">
-                      Demo
-                    </Button>
+                    <a href="/demo.html">
+                      <Button variant="outline" className="border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10">
+                        Demo
+                      </Button>
+                    </a>
                     <Button className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90">
                       Hubungi
                     </Button>

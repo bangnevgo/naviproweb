@@ -1,24 +1,21 @@
-# Worklog
-
 ---
 Task ID: 1
 Agent: Main Agent
-Task: Create comprehensive demo page for NAVI Pro based on understanding the navi-pipeline-app
+Task: Fix demo button navigation - make demo page accessible from main website
 
 Work Log:
-- Extracted and explored navi-pipeline-app.zip to understand the application architecture
-- Read all source files: page.tsx, layout.tsx, globals.css, package.json, README.md, AGENTS.md, CLAUDE.md
-- Read the full index-modern.html landing page (1284 lines) to understand the existing design system
-- Studied the 6-Agent AI Pipeline in depth: Data Scraper → Data Enricher → AI Scorer → URL Generator → Message Composer → Multi-Channel DM
-- Created comprehensive demo.html at /home/z/my-project/download/demo.html (103KB, 1917 lines)
-- Copied index-modern.html to /home/z/my-project/download/ for co-location
-- Updated demo.html "Kembali ke Beranda" link to point to index-modern.html
-- Updated index-modern.html "Demo" nav buttons and "Jadwalkan Demo" CTA to link to demo.html
-- Demo page includes: Interactive Pipeline Simulator, Dashboard Preview, Screenshots Gallery, Tech Stack Architecture, Usage Guide, Before/After Comparison, CTA, Footer
+- Read index-modern.html and demo.html to understand current state
+- Found that Next.js project already had landing page components but Demo button had no navigation
+- Copied demo.html to /home/z/my-project/public/ directory for static serving
+- Updated 3 links in demo.html that pointed to "index-modern.html" or "../upload/index-modern.html" to point to "/"
+- Updated navbar.tsx: Wrapped Demo button in <a href="/demo.html"> for both desktop and mobile views
+- Updated hero.tsx: Wrapped "Coba Gratis 14 Hari" button in <a href="/demo.html">
+- Updated cta.tsx: Wrapped both "Coba Gratis 14 Hari" and "Jadwalkan Demo" buttons in <a href="/demo.html">
+- Verified both pages are accessible: http://localhost:3000/ (200) and http://localhost:3000/demo.html (200)
+- Verified all demo links point to /demo.html and back links point to /
 
 Stage Summary:
-- Key deliverable: /home/z/my-project/download/demo.html - comprehensive interactive demo page
-- Key deliverable: /home/z/my-project/download/index-modern.html - updated main page with demo links
-- Design system matched: Glassmorphism, neon gradients (indigo #6366f1 → cyan #00d4ff), Inter font, dark/light mode
-- All content in Bahasa Indonesia
-- Self-contained HTML file with inline CSS and JS, no external dependencies except Google Fonts
+- Demo page is now accessible at /demo.html
+- All Demo buttons on main page correctly navigate to /demo.html
+- Demo page "Kembali ke Beranda" buttons correctly navigate back to /
+- The demo page includes: interactive pipeline simulator, dashboard preview, screenshots gallery, tech stack architecture, usage guide, and comparison section

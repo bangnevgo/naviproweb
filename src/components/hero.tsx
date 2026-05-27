@@ -236,13 +236,15 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 gap-2 text-base px-6"
-              >
-                <Zap className="w-5 h-5" />
-                Coba Gratis 14 Hari
-              </Button>
+              <a href="/demo.html">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 gap-2 text-base px-6"
+                >
+                  <Zap className="w-5 h-5" />
+                  Coba Gratis 14 Hari
+                </Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"

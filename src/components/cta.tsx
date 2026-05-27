@@ -45,21 +45,25 @@ export function CTA() {
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 gap-2 text-base px-6"
-            >
-              <Zap className="w-5 h-5" />
-              Coba Gratis 14 Hari
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10 gap-2 text-base px-6"
-            >
-              Jadwalkan Demo
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+            <a href="/demo.html">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 gap-2 text-base px-6"
+              >
+                <Zap className="w-5 h-5" />
+                Coba Gratis 14 Hari
+              </Button>
+            </a>
+            <a href="/demo.html">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 gap-2 text-base px-6"
+              >
+                Jadwalkan Demo
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </a>
           </div>
 
           <p className="text-sm text-white/50 pt-2">
