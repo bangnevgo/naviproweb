@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Onest } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
-  variable: "--font-inter",
+const onest = Onest({
+  variable: "--font-onest",
   subsets: ["latin"],
   display: "swap",
 });
@@ -40,10 +40,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${onest.variable} font-sans antialiased bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >

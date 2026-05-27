@@ -6,10 +6,10 @@ import { BarChart3, Shield, Mail, TrendingUp } from 'lucide-react'
 
 function SmartScoringCard() {
   const scores = [
-    { label: 'Rating', points: 20, width: '80%', color: 'from-cyan-500 to-cyan-400' },
-    { label: 'Order', points: 25, width: '75%', color: 'from-blue-500 to-blue-400' },
-    { label: 'GMV', points: 25, width: '85%', color: 'from-violet-500 to-violet-400' },
-    { label: 'Growth', points: 30, width: '70%', color: 'from-fuchsia-500 to-fuchsia-400' },
+    { label: 'Rating', points: 20, width: '80%', color: 'from-orange-600 to-orange-500' },
+    { label: 'Order', points: 25, width: '75%', color: 'from-amber-600 to-amber-500' },
+    { label: 'GMV', points: 25, width: '85%', color: 'from-teal-700 to-teal-600' },
+    { label: 'Growth', points: 30, width: '70%', color: 'from-emerald-600 to-emerald-500' },
   ]
 
   return (
@@ -78,9 +78,9 @@ function AIMessageTemplatesCard() {
 
 function AnalyticsDashboardCard() {
   const metrics = [
-    { label: 'Reply Rate', value: '78%', color: 'text-emerald-400' },
-    { label: 'Demo Booked', value: '234', color: 'text-cyan-400' },
-    { label: 'Avg Score', value: '94', color: 'text-violet-400' },
+    { label: 'Reply Rate', value: '78%', color: 'text-teal-600' },
+    { label: 'Demo Booked', value: '234', color: 'text-orange-500' },
+    { label: 'Avg Score', value: '94', color: 'text-teal-700' },
     { label: 'ROI', value: '3.2x', color: 'text-amber-400' },
   ]
 
@@ -137,8 +137,8 @@ export function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-cyan-600 dark:text-cyan-400">Platform Features</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-orange-700 dark:text-orange-500">Platform Features</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold">
             Mengapa Ribuan Seller <span className="gradient-text">Memilih NAVI Pro</span>
@@ -155,10 +155,10 @@ export function Features() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-xl border border-border bg-card p-6 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5"
+                className="glass-card rounded-xl border border-border bg-card p-6 hover:border-orange-600/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/5"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-600 to-teal-700 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="text-lg font-bold">{card.title}</h3>

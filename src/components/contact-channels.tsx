@@ -14,14 +14,14 @@ const channels = [
     icon: Mail,
     label: 'Email',
     value: 'hello@navipro.id',
-    color: '#00d4ff',
+    color: '#ea580c',
     href: 'mailto:hello@navipro.id',
   },
   {
     icon: Camera,
     label: 'Instagram',
     value: '@navipro.id',
-    color: '#E1306C',
+    color: '#be185d',
     href: '#',
   },
 ]
@@ -37,7 +37,7 @@ export function ContactChannels() {
               <a
                 key={channel.label}
                 href={channel.href}
-                className="glass-card rounded-xl border border-border bg-card p-6 flex items-center gap-4 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5 group"
+                className="glass-card rounded-xl border border-border bg-card p-6 flex items-center gap-4 hover:border-orange-600/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/5 group"
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"

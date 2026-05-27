@@ -40,14 +40,14 @@ function HeroOrbs() {
       <div
         className="absolute -top-40 -left-40 w-80 h-80 rounded-full opacity-30 dark:opacity-20 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #00d4ff, transparent)',
+          background: 'radial-gradient(circle, #ea580c, transparent)',
           animation: 'float-slow 8s ease-in-out infinite',
         }}
       />
       <div
         className="absolute top-20 right-10 w-96 h-96 rounded-full opacity-20 dark:opacity-15 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #6366f1, transparent)',
+          background: 'radial-gradient(circle, #155e75, transparent)',
           animation: 'float-slow 10s ease-in-out infinite reverse',
         }}
       />
@@ -93,14 +93,14 @@ function DashboardPreview() {
             <div className="rounded-lg bg-white/10 dark:bg-white/5 p-3 border border-white/10">
               <p className="text-xs text-muted-foreground">Total Leads</p>
               <p className="text-lg font-bold gradient-text">2,847</p>
-              <span className="flex items-center gap-1 text-xs text-emerald-400">
+              <span className="flex items-center gap-1 text-xs text-teal-600">
                 <TrendingUp className="w-3 h-3" /> +23.5%
               </span>
             </div>
             <div className="rounded-lg bg-white/10 dark:bg-white/5 p-3 border border-white/10">
               <p className="text-xs text-muted-foreground">High Score</p>
               <p className="text-lg font-bold gradient-text">892</p>
-              <span className="flex items-center gap-1 text-xs text-emerald-400">
+              <span className="flex items-center gap-1 text-xs text-teal-600">
                 <TrendingUp className="w-3 h-3" /> +45.2%
               </span>
             </div>
@@ -112,12 +112,12 @@ function DashboardPreview() {
             <svg viewBox="0 0 200 50" className="w-full h-12">
               <defs>
                 <linearGradient id="chart-gradient" x1="0" y1="0" x2="200" y2="0">
-                  <stop offset="0%" stopColor="#00d4ff" />
-                  <stop offset="100%" stopColor="#6366f1" />
+                  <stop offset="0%" stopColor="#ea580c" />
+                  <stop offset="100%" stopColor="#155e75" />
                 </linearGradient>
                 <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="50">
-                  <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#00d4ff" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#ea580c" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#ea580c" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0 40 L30 35 L60 25 L90 30 L120 15 L150 20 L180 8 L200 12" fill="none" stroke="url(#chart-gradient)" strokeWidth="2" />
@@ -130,7 +130,7 @@ function DashboardPreview() {
             <p className="text-xs text-muted-foreground">Pipeline Status</p>
             {[
               { label: 'Scraping', status: 'Active', color: '#10b981' },
-              { label: 'Scoring', status: 'Running', color: '#00d4ff' },
+              { label: 'Scoring', status: 'Running', color: '#ea580c' },
               { label: 'DM Queue', status: '12 pending', color: '#f59e0b' },
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between text-xs">
@@ -154,14 +154,14 @@ function DashboardPreview() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.0 }}
         style={{ animation: 'float 4s ease-in-out infinite' }}
-        className="absolute -right-4 top-16 glass-card rounded-lg bg-emerald-500/20 border border-emerald-500/30 px-3 py-2 shadow-lg"
+        className="absolute -right-4 top-16 glass-card rounded-lg bg-teal-700/20 border border-teal-700/30 px-3 py-2 shadow-lg"
       >
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-emerald-500/30 flex items-center justify-center">
-            <TrendingUp className="w-3 h-3 text-emerald-400" />
+          <div className="w-6 h-6 rounded-full bg-teal-700/30 flex items-center justify-center">
+            <TrendingUp className="w-3 h-3 text-teal-600" />
           </div>
           <div>
-            <p className="text-xs font-semibold text-emerald-300">New High-Score Lead</p>
+            <p className="text-xs font-semibold text-teal-500">New High-Score Lead</p>
             <p className="text-[10px] text-muted-foreground">Score: 94 · Fashion</p>
           </div>
         </div>
@@ -172,14 +172,14 @@ function DashboardPreview() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.5 }}
         style={{ animation: 'float 5s ease-in-out infinite reverse' }}
-        className="absolute -left-4 bottom-20 glass-card rounded-lg bg-cyan-500/20 border border-cyan-500/30 px-3 py-2 shadow-lg"
+        className="absolute -left-4 bottom-20 glass-card rounded-lg bg-orange-600/20 border border-orange-600/30 px-3 py-2 shadow-lg"
       >
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-cyan-500/30 flex items-center justify-center">
-            <Zap className="w-3 h-3 text-cyan-400" />
+          <div className="w-6 h-6 rounded-full bg-orange-600/30 flex items-center justify-center">
+            <Zap className="w-3 h-3 text-orange-500" />
           </div>
           <div>
-            <p className="text-xs font-semibold text-cyan-300">DM Terkirim Otomatis</p>
+            <p className="text-xs font-semibold text-orange-400">DM Terkirim Otomatis</p>
             <p className="text-[10px] text-muted-foreground">3 pesan · Shopee</p>
           </div>
         </div>
@@ -189,10 +189,10 @@ function DashboardPreview() {
 }
 
 const trustBadges = [
-  { name: 'Tokopedia', color: '#42B549' },
-  { name: 'Shopee', color: '#EE4D2D' },
-  { name: 'TikTok Shop', color: '#00f2ea' },
-  { name: 'Instagram', color: '#E1306C' },
+  { name: 'Tokopedia', color: '#16a34a' },
+  { name: 'Shopee', color: '#ea580c' },
+  { name: 'TikTok Shop', color: '#155e75' },
+  { name: 'Instagram', color: '#be185d' },
 ]
 
 export function Hero() {
@@ -210,14 +210,14 @@ export function Hero() {
             className="space-y-6"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm">
               <span
-                className="w-2 h-2 rounded-full bg-emerald-400"
+                className="w-2 h-2 rounded-full bg-teal-600"
                 style={{ animation: 'pulse-dot 2s ease-in-out infinite' }}
               />
-              <span className="text-cyan-600 dark:text-cyan-400">AI-Powered Platform</span>
+              <span className="text-orange-700 dark:text-orange-500">AI-Powered Platform</span>
               <span className="text-muted-foreground">·</span>
-              <span className="text-emerald-500">Live 24/7</span>
+              <span className="text-teal-700">Live 24/7</span>
             </div>
 
             {/* Title */}
@@ -239,7 +239,7 @@ export function Hero() {
               <a href="/demo.html">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 gap-2 text-base px-6"
+                  className="bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90 gap-2 text-base px-6"
                 >
                   <Zap className="w-5 h-5" />
                   Coba Gratis 14 Hari

@@ -116,8 +116,8 @@ export function Contact() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm">
-              <span className="text-cyan-600 dark:text-cyan-400">Coba Gratis</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm">
+              <span className="text-orange-700 dark:text-orange-500">Coba Gratis</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold">
@@ -134,7 +134,7 @@ export function Contact() {
                 const Icon = benefit.icon
                 return (
                   <div key={benefit.label} className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-600 to-teal-700 flex items-center justify-center flex-shrink-0">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -148,7 +148,7 @@ export function Contact() {
 
             {/* Guarantee */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground pt-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-500" />
+              <ShieldCheck className="w-4 h-4 text-teal-700" />
               <span>14 hari gratis · Tanpa kartu kredit · Garansi uang kembali 30 hari</span>
             </div>
           </motion.div>
@@ -258,7 +258,7 @@ export function Contact() {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90 gap-2"
+                className="w-full bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90 gap-2"
                 disabled={loading}
               >
                 {loading ? (

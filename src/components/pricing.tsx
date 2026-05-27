@@ -23,7 +23,7 @@ const plans = [
       '500 DM/bulan',
       'Email support',
     ],
-    gradient: 'from-cyan-500 to-cyan-400',
+    gradient: 'from-orange-600 to-orange-500',
     popular: false,
   },
   {
@@ -42,7 +42,7 @@ const plans = [
       '4 AI templates',
       'Analytics dashboard',
     ],
-    gradient: 'from-cyan-500 to-violet-500',
+    gradient: 'from-orange-600 to-teal-700',
     popular: true,
   },
   {
@@ -62,7 +62,7 @@ const plans = [
       'Full API access',
       'SLA guarantee',
     ],
-    gradient: 'from-violet-500 to-fuchsia-500',
+    gradient: 'from-teal-700 to-teal-600',
     popular: false,
   },
 ]
@@ -82,8 +82,8 @@ export function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-cyan-600 dark:text-cyan-400">Pricing</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-orange-700 dark:text-orange-500">Pricing</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Pilih Paket yang <span className="gradient-text">Tepat untuk Anda</span>
@@ -98,13 +98,13 @@ export function Pricing() {
               id="billing"
               checked={yearly}
               onCheckedChange={setYearly}
-              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-cyan-500 data-[state=checked]:to-violet-500"
+              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-orange-600 data-[state=checked]:to-teal-700"
             />
             <Label htmlFor="billing" className={`text-sm ${yearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
               Tahunan
             </Label>
             {yearly && (
-              <span className="text-xs font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-medium text-teal-700 bg-teal-700/10 px-2 py-0.5 rounded-full">
                 Hemat 30%
               </span>
             )}
@@ -123,12 +123,12 @@ export function Pricing() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`glass-card rounded-xl border bg-card p-6 transition-all duration-300 relative ${
                   plan.popular
-                    ? 'border-cyan-500/50 shadow-xl shadow-cyan-500/10 md:-translate-y-4'
-                    : 'border-border hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/5'
+                    ? 'border-orange-600/50 shadow-xl shadow-orange-600/10 md:-translate-y-4'
+                    : 'border-border hover:border-orange-600/30 hover:shadow-lg hover:shadow-orange-600/5'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-violet-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-600 to-teal-700 text-white text-xs font-medium px-3 py-1 rounded-full">
                     Most Popular
                   </div>
                 )}
@@ -149,7 +149,7 @@ export function Pricing() {
                 <Button
                   className={`w-full mb-6 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90'
+                      ? 'bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90'
                       : 'border border-border hover:bg-accent'
                   }`}
                   variant={plan.popular ? 'default' : 'outline'}
@@ -160,7 +160,7 @@ export function Pricing() {
                 <ul className="space-y-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-teal-700 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}

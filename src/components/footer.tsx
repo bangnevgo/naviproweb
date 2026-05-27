@@ -58,8 +58,8 @@ export function Footer() {
                 <circle cx="16" cy="16" r="3" fill="white" />
                 <defs>
                   <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="32" y2="32">
-                    <stop stopColor="#00d4ff" />
-                    <stop offset="1" stopColor="#6366f1" />
+                    <stop stopColor="#ea580c" />
+                    <stop offset="1" stopColor="#155e75" />
                   </linearGradient>
                 </defs>
               </svg>

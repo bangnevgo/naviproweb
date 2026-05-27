@@ -64,8 +64,8 @@ export function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-cyan-600 dark:text-cyan-400">Social Proof</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-orange-700 dark:text-orange-500">Social Proof</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold">
             Cerita Sukses Seller <span className="gradient-text">NAVI Pro</span>
@@ -80,14 +80,14 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`glass-card rounded-xl border bg-card p-6 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5 relative ${
+              className={`glass-card rounded-xl border bg-card p-6 hover:border-orange-600/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/5 relative ${
                 testimonial.featured
-                  ? 'border-cyan-500/50 shadow-lg shadow-cyan-500/10 md:-translate-y-2'
+                  ? 'border-orange-600/50 shadow-lg shadow-orange-600/10 md:-translate-y-2'
                   : 'border-border'
               }`}
             >
               {testimonial.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-violet-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-600 to-teal-700 text-white text-xs font-medium px-3 py-1 rounded-full">
                   Featured
                 </div>
               )}
@@ -102,7 +102,7 @@ export function Testimonials() {
               <Quote className="w-6 h-6 text-muted-foreground/20 mb-2" />
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{testimonial.text}</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-600 to-teal-700 flex items-center justify-center text-white font-bold text-sm">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>

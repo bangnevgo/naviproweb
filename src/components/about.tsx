@@ -34,8 +34,8 @@ export function About() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm">
-              <span className="text-cyan-600 dark:text-cyan-400">Tentang Kami</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm">
+              <span className="text-orange-700 dark:text-orange-500">Tentang Kami</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold">
@@ -56,7 +56,7 @@ export function About() {
                 const Icon = value.icon
                 return (
                   <div key={value.label} className="flex flex-col items-center text-center p-4 rounded-xl bg-card border border-border">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center mb-2">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-600 to-teal-700 flex items-center justify-center mb-2">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <p className="text-sm font-semibold mb-1">{value.label}</p>
@@ -79,7 +79,7 @@ export function About() {
                   const Icon = stat.icon
                   return (
                     <div key={stat.label} className="text-center p-4 rounded-xl bg-muted/50 border border-border/50">
-                      <Icon className="w-6 h-6 mx-auto mb-2 text-cyan-500" />
+                      <Icon className="w-6 h-6 mx-auto mb-2 text-orange-600" />
                       <p className="text-2xl font-bold gradient-text">{stat.value}</p>
                       <p className="text-sm text-muted-foreground">{stat.label}</p>
                     </div>
@@ -98,9 +98,9 @@ export function About() {
                         className="w-10 h-10 rounded-full border-2 border-background flex items-center justify-center text-xs font-bold text-white"
                         style={{
                           background: `linear-gradient(135deg, ${
-                            i % 3 === 0 ? '#00d4ff' : i % 3 === 1 ? '#6366f1' : '#f59e0b'
+                            i % 3 === 0 ? '#ea580c' : i % 3 === 1 ? '#155e75' : '#f59e0b'
                           }, ${
-                            i % 2 === 0 ? '#6366f1' : '#00d4ff'
+                            i % 2 === 0 ? '#155e75' : '#ea580c'
                           })`,
                         }}
                       >

@@ -6,7 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-onest);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -45,71 +45,99 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #ffffff;
-  --foreground: #0f0f23;
-  --card: #ffffff;
-  --card-foreground: #0f0f23;
-  --popover: #ffffff;
-  --popover-foreground: #0f0f23;
-  --primary: #00d4ff;
-  --primary-foreground: #0f0f23;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f0f23;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f0f23;
-  --destructive: #ef4444;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #00d4ff;
-  --chart-1: #00d4ff;
-  --chart-2: #6366f1;
-  --chart-3: #10b981;
-  --chart-4: #f59e0b;
-  --chart-5: #ef4444;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #0f0f23;
-  --sidebar-primary: #00d4ff;
-  --sidebar-primary-foreground: #0f0f23;
-  --sidebar-accent: #f1f5f9;
-  --sidebar-accent-foreground: #0f0f23;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #00d4ff;
+  /* Agent OS Theme — Warm Cream & Burnt Orange */
+  --background: #fdfbf6;
+  --foreground: #181412;
+  --card: #f8f3e8;
+  --card-foreground: #181412;
+  --popover: #f8f3e8;
+  --popover-foreground: #181412;
+  --primary: #ea580c;
+  --primary-foreground: #ffffff;
+  --secondary: #ffedd5;
+  --secondary-foreground: #181412;
+  --muted: #f8f3e8;
+  --muted-foreground: #9d968a;
+  --accent: #ffedd5;
+  --accent-foreground: #181412;
+  --destructive: #dc2626;
+  --border: #e8dfc9;
+  --input: #e8dfc9;
+  --ring: #ea580c;
+  --chart-1: #ea580c;
+  --chart-2: #155e75;
+  --chart-3: #16a34a;
+  --chart-4: #d97706;
+  --chart-5: #dc2626;
+  --sidebar: #f8f3e8;
+  --sidebar-foreground: #181412;
+  --sidebar-primary: #ea580c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffedd5;
+  --sidebar-accent-foreground: #181412;
+  --sidebar-border: #e8dfc9;
+  --sidebar-ring: #ea580c;
+  /* Agent OS custom tokens */
+  --color-page: #fdfbf6;
+  --color-surface: #f8f3e8;
+  --color-hairline: #e8dfc9;
+  --color-ink-display: #181412;
+  --color-ink-body: #524a40;
+  --color-ink-muted: #9d968a;
+  --color-accent: #ea580c;
+  --color-accent-hover: #c2410c;
+  --color-accent-faded: #ffedd5;
+  --color-signal: #155e75;
+  --color-signal-hover: #0e4a5e;
+  --color-signal-faded: #cffafe;
 }
 
 .dark {
-  --background: #0f0f23;
-  --foreground: #f8fafc;
-  --card: #1a1a2e;
-  --card-foreground: #f8fafc;
-  --popover: #1a1a2e;
-  --popover-foreground: #f8fafc;
-  --primary: #00d4ff;
-  --primary-foreground: #0f0f23;
-  --secondary: #1e1e3a;
-  --secondary-foreground: #f8fafc;
-  --muted: #1e1e3a;
-  --muted-foreground: #94a3b8;
-  --accent: #1e1e3a;
-  --accent-foreground: #f8fafc;
+  /* Agent OS Dark — Inverted Warm */
+  --background: #1a1613;
+  --foreground: #f0ebe3;
+  --card: #252019;
+  --card-foreground: #f0ebe3;
+  --popover: #252019;
+  --popover-foreground: #f0ebe3;
+  --primary: #f26514;
+  --primary-foreground: #ffffff;
+  --secondary: #2d2519;
+  --secondary-foreground: #f0ebe3;
+  --muted: #2d2519;
+  --muted-foreground: #82796d;
+  --accent: #2d2519;
+  --accent-foreground: #f0ebe3;
   --destructive: #ef4444;
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.15);
-  --ring: #00d4ff;
-  --chart-1: #00d4ff;
-  --chart-2: #6366f1;
-  --chart-3: #10b981;
-  --chart-4: #f59e0b;
-  --chart-5: #ef4444;
-  --sidebar: #1a1a2e;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #00d4ff;
-  --sidebar-primary-foreground: #0f0f23;
-  --sidebar-accent: #1e1e3a;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: rgba(255, 255, 255, 0.1);
-  --sidebar-ring: #00d4ff;
+  --border: rgba(232, 223, 201, 0.12);
+  --input: rgba(232, 223, 201, 0.15);
+  --ring: #f26514;
+  --chart-1: #f26514;
+  --chart-2: #22d3ee;
+  --chart-3: #34d399;
+  --chart-4: #fbbf24;
+  --chart-5: #f87171;
+  --sidebar: #252019;
+  --sidebar-foreground: #f0ebe3;
+  --sidebar-primary: #f26514;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d2519;
+  --sidebar-accent-foreground: #f0ebe3;
+  --sidebar-border: rgba(232, 223, 201, 0.12);
+  --sidebar-ring: #f26514;
+  /* Agent OS custom tokens (dark) */
+  --color-page: #1a1613;
+  --color-surface: #252019;
+  --color-hairline: rgba(232, 223, 201, 0.12);
+  --color-ink-display: #f0ebe3;
+  --color-ink-body: #c4bdb2;
+  --color-ink-muted: #82796d;
+  --color-accent: #f26514;
+  --color-accent-hover: #ea580c;
+  --color-accent-faded: #431407;
+  --color-signal: #22d3ee;
+  --color-signal-hover: #06b6d4;
+  --color-signal-faded: #083344;
 }
 
 @layer base {
@@ -163,16 +191,32 @@
   50% { opacity: 0.7; transform: scale(1.1); }
 }
 
-/* Gradient Text */
+/* Gradient Text — Agent OS warm orange to teal */
 .gradient-text {
-  background: linear-gradient(135deg, #00d4ff, #6366f1);
+  background: linear-gradient(135deg, #ea580c, #155e75);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #f26514, #22d3ee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-shimmer {
-  background: linear-gradient(90deg, #00d4ff, #6366f1, #00d4ff);
+  background: linear-gradient(90deg, #ea580c, #155e75, #ea580c);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.dark .gradient-text-shimmer {
+  background: linear-gradient(90deg, #f26514, #22d3ee, #f26514);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -232,16 +276,20 @@
 
 /* Pipeline connector */
 .pipeline-connector {
-  background: linear-gradient(90deg, #00d4ff, #6366f1);
+  background: linear-gradient(90deg, #ea580c, #155e75);
   height: 2px;
   flex-shrink: 0;
 }
 
-/* CTA gradient background */
+.dark .pipeline-connector {
+  background: linear-gradient(90deg, #f26514, #22d3ee);
+}
+
+/* CTA gradient background — Agent OS warm */
 .cta-gradient {
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+  background: linear-gradient(135deg, #181412 0%, #2d1f14 50%, #181412 100%);
 }
 
 .dark .cta-gradient {
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%);
+  background: linear-gradient(135deg, #1a1613 0%, #2d2519 50%, #1a1613 100%);
 }

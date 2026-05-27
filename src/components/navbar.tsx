@@ -33,8 +33,8 @@ function NavLogo() {
         <circle cx="16" cy="16" r="3" fill="white" />
         <defs>
           <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
-            <stop stopColor="#00d4ff" />
-            <stop offset="1" stopColor="#6366f1" />
+            <stop stopColor="#ea580c" />
+            <stop offset="1" stopColor="#155e75" />
           </linearGradient>
         </defs>
       </svg>
@@ -118,13 +118,13 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <a href="/demo.html">
-              <Button variant="outline" size="sm" className="border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10">
+              <Button variant="outline" size="sm" className="border-orange-600/30 text-orange-600 hover:bg-orange-600/10">
                 Demo
               </Button>
             </a>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90"
+              className="bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90"
             >
               Hubungi
             </Button>
@@ -155,11 +155,11 @@ export function Navbar() {
                   ))}
                   <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
                     <a href="/demo.html">
-                      <Button variant="outline" className="border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10">
+                      <Button variant="outline" className="border-orange-600/30 text-orange-600 hover:bg-orange-600/10">
                         Demo
                       </Button>
                     </a>
-                    <Button className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white hover:opacity-90">
+                    <Button className="bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90">
                       Hubungi
                     </Button>
                   </div>
