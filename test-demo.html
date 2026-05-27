@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .section {
+            min-height: 100vh;
+            padding: 50px 20px;
+            border: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        .section:nth-child(odd) {
+            background: #f0f0f0;
+        }
+        .section:nth-child(even) {
+            background: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Section 1 - This should be visible</h1>
+        <p>This is the first section. If you can see this, scrolling should work.</p>
+    </div>
+    <div class="section">
+        <h1>Section 2 - Scroll down to see this</h1>
+        <p>This is the second section. If you can't see this, there's a scrolling issue.</p>
+    </div>
+    <div class="section">
+        <h1>Section 3 - And this too</h1>
+        <p>This is the third section. The page should be scrollable.</p>
+    </div>
+</body>
+</html>
