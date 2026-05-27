@@ -52,13 +52,13 @@ export function Solutions() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Solusi per Kategori</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-primary">Solusi per Kategori</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
             Untuk Semua Jenis <span className="gradient-text">Seller</span>
           </h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             NAVI Pro dirancang untuk berbagai kategori seller dengan scoring dan messaging yang disesuaikan.
           </p>
         </motion.div>
@@ -87,16 +87,16 @@ export function Solutions() {
                 }}
                 onMouseEnter={() => setHoveredIdx(index)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 hover:border-blue-500/30 transition-colors duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow group flex flex-col justify-between overflow-hidden cursor-pointer"
+                className="glass-card rounded-xl border border-primary/15 bg-slate-900/50 p-6 hover:border-primary/30 transition-colors duration-300 hover:shadow-lg hover:shadow-primary/5 neon-border-glow group flex flex-col justify-between overflow-hidden cursor-pointer"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg shadow-blue-500/20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg shadow-primary/20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <motion.h3 
                       layout="position"
-                      className="text-xl font-bold text-white whitespace-nowrap"
+                      className="text-xl font-bold text-foreground whitespace-nowrap"
                     >
                       {solution.title}
                     </motion.h3>
@@ -111,7 +111,7 @@ export function Solutions() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                       {solution.description}
                     </p>
                   </motion.div>
@@ -130,10 +130,10 @@ export function Solutions() {
                     {solution.stats.map((stat) => {
                       const StatIcon = stat.icon
                       return (
-                        <div key={stat.label} className="rounded-lg bg-blue-500/5 p-3 border border-blue-500/10">
+                        <div key={stat.label} className="rounded-lg bg-primary/5 p-3 border border-primary/10">
                           <div className="flex items-center gap-1 mb-1">
-                            <StatIcon className="w-3.5 h-3.5 text-blue-400" />
-                            <span className="text-[10px] text-slate-500">{stat.label}</span>
+                            <StatIcon className="w-3.5 h-3.5 text-primary" />
+                            <span className="text-[10px] text-muted-foreground">{stat.label}</span>
                           </div>
                           <p className="text-lg font-bold gradient-text">{stat.value}</p>
                         </div>
@@ -156,23 +156,23 @@ export function Solutions() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow group"
+                className="glass-card rounded-xl border border-primary/15 bg-slate-900/50 p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 neon-border-glow group"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg shadow-blue-500/20`}>
-                    <Icon className="w-5 h-5 text-white" />
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg shadow-primary/20`}>
+                    <Icon className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <h3 className="text-lg font-bold text-white">{solution.title}</h3>
+                  <h3 className="text-lg font-bold text-foreground">{solution.title}</h3>
                 </div>
-                <p className="text-sm text-slate-400 mb-4">{solution.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">{solution.description}</p>
                 <div className="grid grid-cols-2 gap-3">
                   {solution.stats.map((stat) => {
                     const StatIcon = stat.icon
                     return (
-                      <div key={stat.label} className="rounded-lg bg-blue-500/5 p-3 border border-blue-500/10">
+                      <div key={stat.label} className="rounded-lg bg-primary/5 p-3 border border-primary/10">
                         <div className="flex items-center gap-1 mb-1">
-                          <StatIcon className="w-3 h-3 text-blue-400" />
-                          <span className="text-[10px] text-slate-500">{stat.label}</span>
+                          <StatIcon className="w-3 h-3 text-primary" />
+                          <span className="text-[10px] text-muted-foreground">{stat.label}</span>
                         </div>
                         <p className="text-lg font-bold gradient-text">{stat.value}</p>
                       </div>

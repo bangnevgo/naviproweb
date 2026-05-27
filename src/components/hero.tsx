@@ -41,7 +41,7 @@ function HeroOrbs() {
       <div
         className="absolute -top-40 -left-40 w-80 h-80 rounded-full opacity-30 dark:opacity-20 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #3b82f6, transparent)',
+          background: 'radial-gradient(circle, var(--color-primary), transparent)',
           animation: 'float-slow 8s ease-in-out infinite',
         }}
       />
@@ -49,7 +49,7 @@ function HeroOrbs() {
       <div
         className="absolute top-20 right-10 w-96 h-96 rounded-full opacity-20 dark:opacity-15 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #06b6d4, transparent)',
+          background: 'radial-gradient(circle, var(--chart-2), transparent)',
           animation: 'float-slow 10s ease-in-out infinite reverse',
         }}
       />
@@ -57,7 +57,7 @@ function HeroOrbs() {
       <div
         className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full opacity-15 dark:opacity-10 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #8b5cf6, transparent)',
+          background: 'radial-gradient(circle, var(--chart-3), transparent)',
           animation: 'float-slow 12s ease-in-out infinite',
         }}
       />
@@ -76,9 +76,9 @@ function DashboardPreview() {
       className="relative"
     >
       {/* Main dashboard window */}
-      <div className="glass-card rounded-xl border border-blue-500/20 dark:border-blue-400/10 bg-slate-900/60 dark:bg-slate-900/40 shadow-2xl shadow-blue-500/10 overflow-hidden">
+      <div className="glass-card rounded-xl border border-primary/20 dark:border-primary/10 bg-slate-900/60 dark:bg-slate-900/40 shadow-2xl shadow-primary/10 overflow-hidden">
         {/* Title bar */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-blue-500/10 dark:border-blue-400/5">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-primary/10 dark:border-primary/5">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -95,8 +95,8 @@ function DashboardPreview() {
         <div className="p-4 space-y-4">
           {/* Metrics row */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg bg-blue-500/10 p-3 border border-blue-500/10">
-              <p className="text-xs text-slate-400">Total Leads</p>
+            <div className="rounded-lg bg-primary/10 p-3 border border-primary/10">
+              <p className="text-xs text-muted-foreground">Total Leads</p>
               <p className="text-lg font-bold gradient-text">2,847</p>
               <span className="flex items-center gap-1 text-xs text-cyan-400">
                 <TrendingUp className="w-3 h-3" /> +23.5%

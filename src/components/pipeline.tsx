@@ -68,26 +68,26 @@ function PipelineCard({ step, index }: { step: typeof pipelineSteps[0]; index: n
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="flex-shrink-0 w-72 group"
     >
-      <div className="glass-card rounded-xl border border-blue-500/15 dark:border-blue-400/10 bg-slate-900/50 dark:bg-slate-900/30 p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow h-full">
+      <div className="glass-card rounded-xl border border-primary/15 dark:border-primary/10 bg-slate-900/50 dark:bg-slate-900/30 p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 neon-border-glow h-full">
         {/* Step number */}
         <div className="flex items-center justify-between mb-4">
           <span className="text-3xl font-black gradient-text opacity-40">{step.step}</span>
-          <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg shadow-blue-500/20`}>
-            <Icon className="w-5 h-5 text-white" />
+          <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg shadow-primary/20`}>
+            <Icon className="w-5 h-5 text-primary-foreground" />
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold mb-2 text-white">{step.title}</h3>
+        <h3 className="text-lg font-bold mb-2 text-foreground">{step.title}</h3>
 
         {/* Description */}
-        <p className="text-sm text-slate-400 mb-4">{step.description}</p>
+        <p className="text-sm text-muted-foreground mb-4">{step.description}</p>
 
         {/* Features */}
         <ul className="space-y-1.5">
           {step.features.map((feature) => (
-            <li key={feature} className="flex items-center gap-2 text-xs text-slate-400">
-              <div className="w-1 h-1 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
+            <li key={feature} className="flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="w-1 h-1 rounded-full bg-gradient-to-r from-primary to-chart-2" />
               {feature}
             </li>
           ))}
