@@ -21,7 +21,7 @@
       --border-glow: rgba(59,130,246,0.4);
       --text-primary: #e2e8f0;
       --text-secondary: #94a3b8;
-      --text-tertiary: #64748b;
+      --text-tertiary: #8ea3bd;
       --accent-indigo: #3b82f6;
       --accent-cyan: #06b6d4;
       --accent-green: #10b981;
@@ -51,7 +51,7 @@
       --border-glow: rgba(59,130,246,0.4);
       --text-primary: #e2e8f0;
       --text-secondary: #94a3b8;
-      --text-tertiary: #64748b;
+      --text-tertiary: #8ea3bd;
       --accent-indigo: #3b82f6;
       --accent-cyan: #06b6d4;
       --accent-green: #10b981;
@@ -73,7 +73,7 @@
       --border-glow: rgba(96,165,250,0.4);
       --text-primary: #e2e8f0;
       --text-secondary: #94a3b8;
-      --text-tertiary: #64748b;
+      --text-tertiary: #8ea3bd;
       --accent-indigo: #60a5fa;
       --accent-cyan: #22d3ee;
       --accent-green: #34d399;
@@ -1509,14 +1509,27 @@
     // ===== THEME TOGGLE =====
     const html = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('navi-theme') || 'light';
+    
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    
+    function resolveTheme() {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'system') {
+        return getSystemTheme();
+      }
+      return stored || 'dark';
+    }
+
+    const savedTheme = resolveTheme();
     html.setAttribute('data-theme', savedTheme);
 
     themeToggle.addEventListener('click', () => {
       const current = html.getAttribute('data-theme');
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
-      localStorage.setItem('navi-theme', next);
+      localStorage.setItem('theme', next);
     });
 
     // ===== NAVBAR SCROLL =====

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Shirt, Smartphone, Sparkles, TrendingUp, BarChart3, Heart } from 'lucide-react'
 
 const solutions = [
@@ -38,6 +38,7 @@ const solutions = [
 ]
 
 export function Solutions() {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
@@ -52,7 +53,7 @@ export function Solutions() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Solutions</span>
+            <span className="text-blue-400">Solusi per Kategori</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Untuk Semua Jenis <span className="gradient-text">Seller</span>
@@ -62,8 +63,91 @@ export function Solutions() {
           </p>
         </motion.div>
 
-        {/* Solution cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Solution cards - Desktop (Hover Accordion Slider) */}
+        <div className="hidden md:flex gap-6 h-[380px] items-stretch">
+          {solutions.map((solution, index) => {
+            const Icon = solution.icon
+            const isHovered = hoveredIdx === index
+            const isAnyHovered = hoveredIdx !== null
+            const isCollapsed = isAnyHovered && !isHovered
+            
+            return (
+              <motion.div
+                key={solution.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? {
+                  opacity: 1,
+                  y: 0,
+                  flex: isHovered ? 2.5 : (isCollapsed ? 0.6 : 1)
+                } : {}}
+                transition={{
+                  flex: { type: 'spring', stiffness: 200, damping: 25 },
+                  opacity: { duration: 0.5, delay: index * 0.1 },
+                  y: { duration: 0.5, delay: index * 0.1 }
+                }}
+                onMouseEnter={() => setHoveredIdx(index)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 hover:border-blue-500/30 transition-colors duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow group flex flex-col justify-between overflow-hidden cursor-pointer"
+              >
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg shadow-blue-500/20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <motion.h3 
+                      layout="position"
+                      className="text-xl font-bold text-white whitespace-nowrap"
+                    >
+                      {solution.title}
+                    </motion.h3>
+                  </div>
+
+                  <motion.div
+                    initial={false}
+                    animate={{ 
+                      opacity: isCollapsed ? 0 : 1,
+                      height: isCollapsed ? 0 : 'auto',
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+                      {solution.description}
+                    </p>
+                  </motion.div>
+                </div>
+
+                <motion.div
+                  initial={false}
+                  animate={{ 
+                    opacity: isCollapsed ? 0 : 1,
+                    height: isCollapsed ? 0 : 'auto'
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    {solution.stats.map((stat) => {
+                      const StatIcon = stat.icon
+                      return (
+                        <div key={stat.label} className="rounded-lg bg-blue-500/5 p-3 border border-blue-500/10">
+                          <div className="flex items-center gap-1 mb-1">
+                            <StatIcon className="w-3.5 h-3.5 text-blue-400" />
+                            <span className="text-[10px] text-slate-500">{stat.label}</span>
+                          </div>
+                          <p className="text-lg font-bold gradient-text">{stat.value}</p>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </motion.div>
+              </motion.div>
+            )
+          })}
+        </div>
+
+        {/* Solution cards - Mobile (Standard Stacked) */}
+        <div className="flex flex-col md:hidden gap-6">
           {solutions.map((solution, index) => {
             const Icon = solution.icon
             return (
@@ -74,10 +158,12 @@ export function Solutions() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow group"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg shadow-blue-500/20`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{solution.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">{solution.title}</h3>
                 <p className="text-sm text-slate-400 mb-4">{solution.description}</p>
                 <div className="grid grid-cols-2 gap-3">
                   {solution.stats.map((stat) => {

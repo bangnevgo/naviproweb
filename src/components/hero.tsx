@@ -220,14 +220,14 @@ export function Hero() {
                 className="w-2 h-2 rounded-full bg-cyan-400"
                 style={{ animation: 'pulse-dot 2s ease-in-out infinite' }}
               />
-              <span className="text-blue-400">AI-Powered Platform</span>
+              <span className="text-blue-400">Robot Pencari Pembeli</span>
               <span className="text-slate-600">·</span>
-              <span className="text-cyan-400">Live 24/7</span>
+              <span className="text-cyan-400">Aktif 24/7</span>
             </div>
 
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white">
-              Lead Generation
+              Cari Calon Pembeli
               <br />
               <span className="gradient-text">Otomatis &amp; Cerdas</span>
               <br />
@@ -236,7 +236,7 @@ export function Hero() {
 
             {/* Subtitle */}
             <p className="text-lg text-slate-400 max-w-lg">
-              Platform AI yang mengotomatisasi seluruh pipeline lead generation — dari scraping, scoring, hingga DM — sehingga Anda fokus closing, bukan cari prospek.
+              Robot AI yang bekerja 24 jam mencari, menyaring, dan menghubungi calon pembeli potensial untuk Anda — sehingga Anda tinggal fokus jualan dan closing.
             </p>
 
             {/* CTA Buttons */}
@@ -250,14 +250,16 @@ export function Hero() {
                   Coba Gratis 14 Hari
                 </Button>
               </a>
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2 text-base px-6 border-blue-500/20 text-slate-300 hover:bg-blue-500/10 hover:text-blue-300 hover:border-blue-500/30"
-              >
-                Lihat Cara Kerja
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+              <a href="#pipeline">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="gap-2 text-base px-6 border-blue-500/20 text-slate-300 hover:bg-blue-500/10 hover:text-blue-300 hover:border-blue-500/30 w-full sm:w-auto"
+                >
+                  Lihat Cara Kerja
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
 
             {/* Stats row */}

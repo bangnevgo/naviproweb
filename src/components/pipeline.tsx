@@ -8,49 +8,49 @@ const pipelineSteps = [
   {
     step: '01',
     icon: Crosshair,
-    title: 'Data Scraper',
-    description: 'Koleksi data masif dari berbagai platform e-commerce secara real-time',
-    features: ['Auto-detection', 'Multi-platform', 'Data cleansing'],
+    title: 'Cari Prospek Otomatis',
+    description: 'AI menyisir e-commerce & media sosial untuk mencari calon pembeli/mitra yang aktif secara real-time.',
+    features: ['Deteksi otomatis', 'Multi-platform', 'Bebas data duplikat'],
     gradient: 'from-blue-600 to-blue-500',
   },
   {
     step: '02',
     icon: Grid3X3,
-    title: 'Data Enricher',
-    description: 'Enrichment data dengan AI-powered insights',
-    features: ['Niche detection', 'GMV analysis', 'Signal processing'],
+    title: 'Analisis Profil Toko',
+    description: 'Mengumpulkan info penting calon pembeli secara otomatis, mulai dari performa jualan hingga kategori produk.',
+    features: ['Deteksi kategori produk', 'Estimasi omset', 'Analisis keaktifan toko'],
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
     step: '03',
     icon: Shield,
-    title: 'AI Scorer',
-    description: 'Scoring system canggih dengan 100 parameter',
-    features: ['Rating analysis', 'Order patterns', 'Revenue prediction'],
+    title: 'Penyaringan Toko Terbaik',
+    description: 'Sistem pintar menilai dan mengurutkan toko mana yang paling berpotensi closing agar Anda hemat waktu.',
+    features: ['Skor minat beli', 'Analisis ulasan pembeli', 'Deteksi prospek premium'],
     gradient: 'from-indigo-600 to-violet-600',
   },
   {
     step: '04',
     icon: Link2,
-    title: 'URL Generator',
-    description: 'Generate personalized demo pages dengan tracking unik',
-    features: ['Unique tracking URLs', 'Analytics integration', 'CRM sync'],
+    title: 'Halaman Penawaran Khusus',
+    description: 'Membuat halaman promo khusus yang dipersonalisasi untuk setiap target toko agar terlihat profesional.',
+    features: ['Link penawaran unik', 'Pelacakan kunjungan link', 'Halaman ramah seluler'],
     gradient: 'from-violet-600 to-purple-600',
   },
   {
     step: '05',
     icon: Mail,
-    title: 'Message Composer',
-    description: 'AI-powered message generation yang personal',
-    features: ['Personalized templates', 'Tone adaptation', 'A/B testing'],
+    title: 'Penyusun Pesan Otomatis',
+    description: 'AI merangkai draf pesan penawaran kerja sama yang personal dan natural (bukan seperti spam robot).',
+    features: ['Gaya bahasa natural', 'Template pesan otomatis', 'Optimasi kata-kata closing'],
     gradient: 'from-purple-600 to-cyan-600',
   },
   {
     step: '06',
     icon: MessageSquare,
-    title: 'Multi-Channel DM',
-    description: 'Kirim pesan ke berbagai platform sekaligus',
-    features: ['TikTok DM', 'Shopee Chat', 'Instagram DM & Email'],
+    title: 'Kirim Penawaran Langsung',
+    description: 'Mengirimkan pesan penawaran secara otomatis langsung ke inbox Shopee, Tokopedia, TikTok, atau Instagram.',
+    features: ['Kirim ke e-commerce & IG', 'Pengiriman aman teratur', 'Laporan pengiriman sukses'],
     gradient: 'from-cyan-600 to-teal-500',
   },
 ]
@@ -112,13 +112,13 @@ export function Pipeline() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">How It Works</span>
+            <span className="text-blue-400">Cara Kerja</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            6-Agent <span className="gradient-text">AI Pipeline</span>
+            6 Langkah <span className="gradient-text">Robot AI Bekerja untuk Anda</span>
           </h2>
           <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-            Dari data mentah hingga DM terkirim — semuanya otomatis dalam satu pipeline AI yang cerdas.
+            Dari mencari calon pembeli hingga mengirim penawaran — semuanya berjalan otomatis tanpa Anda perlu angkat jari.
           </p>
         </motion.div>
 

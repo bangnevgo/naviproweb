@@ -5,16 +5,16 @@ import { useRef } from 'react'
 import { Database, Users, TrendingUp, Heart, ShieldCheck, Zap, Award } from 'lucide-react'
 
 const values = [
-  { icon: Database, label: 'Data-Driven', description: 'Setiap keputusan didasarkan pada data dan analisis mendalam.' },
-  { icon: Users, label: 'Seller-First', description: 'Kami memprioritaskan kebutuhan dan kesuksesan seller.' },
-  { icon: ShieldCheck, label: 'Aman & Terpercaya', description: 'Data Anda terlindungi dengan enkripsi tingkat enterprise.' },
+  { icon: Database, label: 'Berbasis Data', description: 'Setiap keputusan didasarkan pada data nyata dari toko e-commerce.' },
+  { icon: Users, label: 'Untuk Seller', description: 'Kami memprioritaskan kebutuhan dan kesuksesan seller Indonesia.' },
+  { icon: ShieldCheck, label: 'Aman & Terpercaya', description: 'Data Anda terlindungi dengan keamanan tingkat tinggi.' },
 ]
 
 const stats = [
-  { value: '100+', label: 'Seller', icon: Users },
-  { value: '5M+', label: 'Leads', icon: Database },
-  { value: '3.8x', label: 'ROI', icon: TrendingUp },
-  { value: '98%', label: 'Retention', icon: Heart },
+  { value: '100+', label: 'Seller Aktif', icon: Users },
+  { value: '5M+', label: 'Prospek Ditemukan', icon: Database },
+  { value: '3.8x', label: 'Keuntungan Rata-rata', icon: TrendingUp },
+  { value: '98%', label: 'Puas & Lanjut', icon: Heart },
 ]
 
 const teamAvatars = ['A', 'R', 'D', 'B', 'S', 'K']
@@ -39,15 +39,15 @@ export function About() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Membangun Masa Depan <span className="gradient-text">Lead Generation</span>
+              Membangun Masa Depan <span className="gradient-text">Penjualan Online</span>
             </h2>
 
             <p className="text-slate-400 leading-relaxed">
-              NAVI Pro didirikan dengan misi sederhana: membuat lead generation lebih cerdas, lebih cepat, dan lebih efektif untuk seller Indonesia. Kami menggabungkan kekuatan AI dengan pemahaman mendalam tentang ekosistem e-commerce lokal.
+              NAVI Pro lahir dari satu misi sederhana: membantu seller Indonesia mendapatkan pembeli baru dengan lebih mudah, lebih cepat, dan tanpa repot. Kami menggabungkan kekuatan AI dengan pemahaman mendalam tentang pasar e-commerce lokal.
             </p>
 
             <p className="text-slate-400 leading-relaxed">
-              Tim kami terdiri dari engineer dan data scientist berpengalaman yang memahami kebutuhan unik seller di Tokopedia, Shopee, TikTok Shop, dan platform e-commerce lainnya. Setiap fitur dirancang berdasarkan data nyata dan feedback dari komunitas seller.
+              Tim kami terdiri dari ahli teknologi dan data yang paham kebutuhan seller di Tokopedia, Shopee, TikTok Shop, dan platform lainnya. Setiap fitur kami rancang dari masukan langsung para seller yang sudah menggunakan NAVI Pro.
             </p>
 
             {/* Value items */}

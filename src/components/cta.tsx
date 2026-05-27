@@ -38,11 +38,11 @@ export function CTA() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm">
             <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-blue-300">Ready to Scale?</span>
+            <span className="text-blue-300">Siap Tingkatkan Penjualan?</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-            Mulai Lead Generation <br />
+            Mulai Cari Calon Pembeli <br />
             <span className="gradient-text-shimmer">Otomatis Hari Ini</span>
           </h2>
 

@@ -83,7 +83,7 @@ export function Pricing() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Pricing</span>
+            <span className="text-blue-400">Harga</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
             Pilih Paket yang <span className="gradient-text">Tepat untuk Anda</span>

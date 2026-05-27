@@ -99,26 +99,26 @@ function AnalyticsDashboardCard() {
 const featureCards = [
   {
     icon: Shield,
-    title: 'Smart Scoring 100-Point',
-    description: 'Scoring system dengan 100 parameter yang menganalisis rating, order, GMV, dan growth secara real-time.',
+    title: 'Penyaringan Pintar 100 Poin',
+    description: 'Sistem cerdas yang menilai calon pembeli dari 100 aspek: reputasi toko, jumlah pesanan, omset, dan pertumbuhan — agar Anda tak buang waktu.',
     content: <SmartScoringCard />,
   },
   {
     icon: TrendingUp,
-    title: 'Priority Automation',
-    description: 'Otomatisasi pengiriman pesan berdasarkan priority scoring — high lead dikirim instant.',
+    title: 'Kirim Penawaran Tepat Sasaran',
+    description: 'Prospek terbaik langsung dihubungi pertama kali. Yang biasa-biasa saja dijadwalkan otomatis.',
     content: <PriorityAutomationCard />,
   },
   {
     icon: Mail,
-    title: 'AI Message Templates',
-    description: 'Template pesan AI yang personal dan adaptif untuk setiap segmen lead.',
+    title: 'Pesan yang Terasa Personal',
+    description: 'AI menulis pesan penawaran yang natural dan disesuaikan untuk setiap calon pembeli — bukan pesan spam massal.',
     content: <AIMessageTemplatesCard />,
   },
   {
     icon: BarChart3,
-    title: 'Analytics Dashboard',
-    description: 'Dashboard real-time untuk monitoring performa lead generation dan ROI.',
+    title: 'Pantau Hasil Secara Langsung',
+    description: 'Lihat berapa banyak prospek yang sudah dihubungi, berapa yang membalas, dan berapa keuntungan yang dihasilkan.',
     content: <AnalyticsDashboardCard />,
   },
 ]
@@ -138,7 +138,7 @@ export function Features() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Platform Features</span>
+            <span className="text-blue-400">Fitur Unggulan</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Mengapa Ribuan Seller <span className="gradient-text">Memilih NAVI Pro</span>

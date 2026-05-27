@@ -65,7 +65,7 @@ export function Testimonials() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Social Proof</span>
+            <span className="text-blue-400">Kata Mereka</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Cerita Sukses Seller <span className="gradient-text">NAVI Pro</span>
