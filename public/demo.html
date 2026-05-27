@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -695,7 +696,14 @@
       });
     }, { threshold: 0.1 });
 
-    revealElements.forEach(el => observer.observe(el));
+    // Check if elements are already in viewport on load
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        el.classList.add('active');
+      }
+      observer.observe(el);
+    });
 
     // Load saved theme preference
     const savedTheme = localStorage.getItem('theme') || 'dark';
