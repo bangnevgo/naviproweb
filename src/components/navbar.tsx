@@ -33,8 +33,8 @@ function NavLogo() {
         <circle cx="16" cy="16" r="3" fill="white" />
         <defs>
           <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
-            <stop stopColor="#ea580c" />
-            <stop offset="1" stopColor="#155e75" />
+            <stop stopColor="#3b82f6" />
+            <stop offset="1" stopColor="#06b6d4" />
           </linearGradient>
         </defs>
       </svg>
@@ -93,7 +93,7 @@ export function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'navbar-glass bg-background/80 border-b border-border shadow-sm'
+          ? 'navbar-glass bg-[#0a0e1a]/80 dark:bg-[#050816]/80 border-b border-blue-500/10 shadow-lg shadow-blue-500/5'
           : 'bg-transparent'
       }`}
     >
@@ -107,7 +107,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                className="px-3 py-2 text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors rounded-md hover:bg-blue-500/10"
               >
                 {link.label}
               </a>
@@ -118,13 +118,13 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <a href="/demo.html">
-              <Button variant="outline" size="sm" className="border-orange-600/30 text-orange-600 hover:bg-orange-600/10">
+              <Button variant="outline" size="sm" className="border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300">
                 Demo
               </Button>
             </a>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90 shadow-lg shadow-blue-500/25"
             >
               Hubungi
             </Button>
@@ -139,27 +139,27 @@ export function Navbar() {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-72">
+              <SheetContent side="right" className="w-72 bg-[#0a0e1a] border-blue-500/10">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col gap-4 mt-8">
                   {navLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <a
                         href={link.href}
-                        className="px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                        className="px-3 py-2 text-base font-medium text-slate-400 hover:text-blue-400 transition-colors rounded-md hover:bg-blue-500/10"
                         onClick={() => setMobileOpen(false)}
                       >
                         {link.label}
                       </a>
                     </SheetClose>
                   ))}
-                  <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
+                  <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-blue-500/10">
                     <a href="/demo.html">
-                      <Button variant="outline" className="border-orange-600/30 text-orange-600 hover:bg-orange-600/10">
+                      <Button variant="outline" className="border-blue-500/30 text-blue-400 hover:bg-blue-500/10 w-full">
                         Demo
                       </Button>
                     </a>
-                    <Button className="bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90">
+                    <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90 w-full">
                       Hubungi
                     </Button>
                   </div>

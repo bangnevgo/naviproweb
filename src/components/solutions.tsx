@@ -13,7 +13,7 @@ const solutions = [
       { label: 'Conv Rate', value: '+62%', icon: TrendingUp },
       { label: 'Lead Quality', value: '2.8x', icon: BarChart3 },
     ],
-    gradient: 'from-pink-500 to-rose-500',
+    gradient: 'from-blue-600 to-indigo-600',
   },
   {
     icon: Smartphone,
@@ -23,7 +23,7 @@ const solutions = [
       { label: 'High-Value Leads', value: '+78%', icon: TrendingUp },
       { label: 'ROI', value: '4.1x', icon: BarChart3 },
     ],
-    gradient: 'from-orange-600 to-amber-600',
+    gradient: 'from-violet-600 to-purple-600',
   },
   {
     icon: Sparkles,
@@ -33,7 +33,7 @@ const solutions = [
       { label: 'Repeat Buyers', value: '+55%', icon: Heart },
       { label: 'LTV', value: '3.5x', icon: BarChart3 },
     ],
-    gradient: 'from-teal-700 to-teal-600',
+    gradient: 'from-cyan-600 to-teal-500',
   },
 ]
 
@@ -51,13 +51,13 @@ export function Solutions() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-orange-700 dark:text-orange-500">Solutions</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-blue-400">Solutions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Untuk Semua Jenis <span className="gradient-text">Seller</span>
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
             NAVI Pro dirancang untuk berbagai kategori seller dengan scoring dan messaging yang disesuaikan.
           </p>
         </motion.div>
@@ -72,21 +72,21 @@ export function Solutions() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-xl border border-border bg-card p-6 hover:border-orange-600/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/5 group"
+                className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow group"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{solution.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{solution.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-white">{solution.title}</h3>
+                <p className="text-sm text-slate-400 mb-4">{solution.description}</p>
                 <div className="grid grid-cols-2 gap-3">
                   {solution.stats.map((stat) => {
                     const StatIcon = stat.icon
                     return (
-                      <div key={stat.label} className="rounded-lg bg-muted/50 p-3 border border-border/50">
+                      <div key={stat.label} className="rounded-lg bg-blue-500/5 p-3 border border-blue-500/10">
                         <div className="flex items-center gap-1 mb-1">
-                          <StatIcon className="w-3 h-3 text-orange-600" />
-                          <span className="text-[10px] text-muted-foreground">{stat.label}</span>
+                          <StatIcon className="w-3 h-3 text-blue-400" />
+                          <span className="text-[10px] text-slate-500">{stat.label}</span>
                         </div>
                         <p className="text-lg font-bold gradient-text">{stat.value}</p>
                       </div>

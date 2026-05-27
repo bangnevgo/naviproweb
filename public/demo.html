@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +11,27 @@
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
-      --bg-primary: #fdfbf6;
-      --bg-secondary: #f8f3e8;
-      --bg-tertiary: #e8dfc9;
-      --bg-card: rgba(24,20,18,0.03);
-      --bg-card-hover: rgba(24,20,18,0.06);
-      --bg-glass: rgba(248,243,232,0.6);
-      --border-color: #e8dfc9;
-      --border-glow: rgba(234,88,12,0.3);
-      --text-primary: #181412;
-      --text-secondary: #524a40;
-      --text-tertiary: #9d968a;
-      --accent-indigo: #ea580c;
-      --accent-cyan: #155e75;
-      --accent-green: #16a34a;
-      --accent-red: #dc2626;
-      --accent-amber: #d97706;
-      --accent-purple: #0e4a5e;
-      --gradient-main: linear-gradient(135deg, #ea580c, #155e75);
-      --gradient-glow: linear-gradient(135deg, rgba(234,88,12,0.15), rgba(21,94,117,0.15));
-      --shadow-glow: 0 0 40px rgba(234,88,12,0.15);
-      --shadow-card: 0 4px 30px rgba(0,0,0,0.08);
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #0c1025;
+      --bg-tertiary: #111631;
+      --bg-card: rgba(59,130,246,0.03);
+      --bg-card-hover: rgba(59,130,246,0.06);
+      --bg-glass: rgba(15,23,42,0.6);
+      --border-color: rgba(59,130,246,0.15);
+      --border-glow: rgba(59,130,246,0.4);
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      --accent-indigo: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --gradient-main: linear-gradient(135deg, #3b82f6, #06b6d4);
+      --gradient-glow: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(6,182,212,0.15));
+      --shadow-glow: 0 0 40px rgba(59,130,246,0.15);
+      --shadow-card: 0 4px 30px rgba(0,0,0,0.3);
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
@@ -41,49 +41,49 @@
     }
 
     [data-theme="light"] {
-      --bg-primary: #fdfbf6;
-      --bg-secondary: #f8f3e8;
-      --bg-tertiary: #e8dfc9;
-      --bg-card: rgba(24,20,18,0.03);
-      --bg-card-hover: rgba(24,20,18,0.06);
-      --bg-glass: rgba(248,243,232,0.6);
-      --border-color: #e8dfc9;
-      --border-glow: rgba(234,88,12,0.3);
-      --text-primary: #181412;
-      --text-secondary: #524a40;
-      --text-tertiary: #9d968a;
-      --accent-indigo: #ea580c;
-      --accent-cyan: #155e75;
-      --accent-green: #16a34a;
-      --accent-red: #dc2626;
-      --accent-amber: #d97706;
-      --accent-purple: #0e4a5e;
-      --shadow-glow: 0 0 40px rgba(234,88,12,0.15);
-      --shadow-card: 0 4px 30px rgba(0,0,0,0.08);
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #0c1025;
+      --bg-tertiary: #111631;
+      --bg-card: rgba(59,130,246,0.03);
+      --bg-card-hover: rgba(59,130,246,0.06);
+      --bg-glass: rgba(15,23,42,0.6);
+      --border-color: rgba(59,130,246,0.15);
+      --border-glow: rgba(59,130,246,0.4);
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      --accent-indigo: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --shadow-glow: 0 0 40px rgba(59,130,246,0.15);
+      --shadow-card: 0 4px 30px rgba(0,0,0,0.3);
     }
 
     [data-theme="dark"] {
-      --bg-primary: #1a1613;
-      --bg-secondary: #252019;
-      --bg-tertiary: #2d2519;
-      --bg-card: rgba(24,20,18,0.03);
-      --bg-card-hover: rgba(24,20,18,0.06);
-      --bg-glass: rgba(24,20,18,0.03);
-      --border-color: rgba(232,223,201,0.12);
-      --border-glow: rgba(242,101,20,0.3);
-      --text-primary: #f0ebe3;
-      --text-secondary: #c4bdb2;
-      --text-tertiary: #82796d;
-      --accent-indigo: #f26514;
+      --bg-primary: #050816;
+      --bg-secondary: #0a0f1e;
+      --bg-tertiary: #111631;
+      --bg-card: rgba(96,165,250,0.03);
+      --bg-card-hover: rgba(96,165,250,0.06);
+      --bg-glass: rgba(15,23,42,0.5);
+      --border-color: rgba(96,165,250,0.12);
+      --border-glow: rgba(96,165,250,0.4);
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      --accent-indigo: #60a5fa;
       --accent-cyan: #22d3ee;
       --accent-green: #34d399;
-      --accent-red: #dc2626;
-      --accent-amber: #d97706;
-      --accent-purple: #0e4a5e;
-      --gradient-main: linear-gradient(135deg, #f26514, #22d3ee);
-      --gradient-glow: linear-gradient(135deg, rgba(242,101,20,0.15), rgba(34,211,238,0.15));
-      --shadow-glow: 0 0 40px rgba(242,101,20,0.15);
-      --shadow-card: 0 4px 30px rgba(0,0,0,0.3);
+      --accent-red: #f87171;
+      --accent-amber: #fbbf24;
+      --accent-purple: #a78bfa;
+      --gradient-main: linear-gradient(135deg, #60a5fa, #22d3ee);
+      --gradient-glow: linear-gradient(135deg, rgba(96,165,250,0.15), rgba(34,211,238,0.15));
+      --shadow-glow: 0 0 40px rgba(96,165,250,0.15);
+      --shadow-card: 0 4px 30px rgba(0,0,0,0.4);
     }
 
     /* ===== RESET & BASE ===== */
@@ -101,8 +101,8 @@
     /* ===== SCROLLBAR ===== */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg-secondary); }
-    ::-webkit-scrollbar-thumb { background: rgba(234,88,12,0.3); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(234,88,12,0.5); }
+    ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(59,130,246,0.5); }
 
     /* ===== UTILITY ===== */
     .gradient-text {
@@ -125,17 +125,17 @@
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       padding: 16px 0;
-      background: rgba(253,251,246,0.85);
+      background: rgba(10,14,26,0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
       transition: all var(--transition);
     }
-    [data-theme="light"] .navbar { background: rgba(253,251,246,0.85); border-bottom: 1px solid #e8dfc9; }
-    .navbar.scrolled { padding: 10px 0; background: rgba(253,251,246,0.95); }
-    [data-theme="light"] .navbar.scrolled { background: rgba(253,251,246,0.95); }
-    [data-theme="dark"] .navbar { background: rgba(26,22,19,0.8); }
-    [data-theme="dark"] .navbar.scrolled { background: rgba(26,22,19,0.95); }
+    [data-theme="light"] .navbar { background: rgba(10,14,26,0.85); border-bottom: 1px solid rgba(59,130,246,0.15); }
+    .navbar.scrolled { padding: 10px 0; background: rgba(10,14,26,0.95); }
+    [data-theme="light"] .navbar.scrolled { background: rgba(10,14,26,0.95); }
+    [data-theme="dark"] .navbar { background: rgba(5,8,22,0.8); }
+    [data-theme="dark"] .navbar.scrolled { background: rgba(5,8,22,0.95); }
     .nav-container {
       max-width: 1200px; margin: 0 auto; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between;
@@ -159,9 +159,9 @@
     }
     .btn-primary {
       background: var(--gradient-main); color: white;
-      box-shadow: 0 0 20px rgba(234,88,12,0.3);
+      box-shadow: 0 0 20px rgba(59,130,246,0.3);
     }
-    .btn-primary:hover { box-shadow: 0 0 30px rgba(234,88,12,0.5); transform: translateY(-1px); }
+    .btn-primary:hover { box-shadow: 0 0 30px rgba(59,130,246,0.5); transform: translateY(-1px); }
     .btn-secondary {
       background: var(--bg-glass); color: var(--text-primary);
       border: 1px solid var(--border-color);
@@ -266,7 +266,7 @@
     .section-header { text-align: center; margin-bottom: 60px; }
     .section-badge {
       display: inline-block; padding: 6px 16px; border-radius: 50px;
-      background: var(--gradient-glow); border: 1px solid rgba(234,88,12,0.2);
+      background: var(--gradient-glow); border: 1px solid rgba(59,130,246,0.2);
       font-size: 0.8rem; font-weight: 600; color: var(--accent-cyan);
       margin-bottom: 16px; letter-spacing: 0.02em;
     }
@@ -314,13 +314,13 @@
     }
     .sim-start-icon {
       width: 80px; height: 80px; border-radius: 50%;
-      background: var(--gradient-glow); border: 1px solid rgba(234,88,12,0.3);
+      background: var(--gradient-glow); border: 1px solid rgba(59,130,246,0.3);
       display: flex; align-items: center; justify-content: center;
       animation: pulse-glow 2s infinite;
     }
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(234,88,12,0.2); }
-      50% { box-shadow: 0 0 40px rgba(234,88,12,0.4); }
+      0%, 100% { box-shadow: 0 0 20px rgba(59,130,246,0.2); }
+      50% { box-shadow: 0 0 40px rgba(59,130,246,0.4); }
     }
     .sim-start-icon svg { width: 36px; height: 36px; stroke: var(--accent-cyan); }
     .sim-start h3 { font-size: 1.3rem; font-weight: 700; }
@@ -347,7 +347,7 @@
 
     /* Terminal style */
     .terminal {
-      background: #1a1613; border: 1px solid rgba(232,223,201,0.12);
+      background: #0a0e1a; border: 1px solid rgba(59,130,246,0.15);
       border-radius: var(--radius-md); padding: 20px; font-family: 'SF Mono', 'Fira Code', monospace;
       font-size: 0.8rem; line-height: 1.8; color: #c9d1d9;
       max-height: 320px; overflow-y: auto;
@@ -372,7 +372,7 @@
       border: 1px solid var(--border-color);
     }
     .enrich-table th {
-      text-align: left; padding: 12px 16px; background: rgba(234,88,12,0.1);
+      text-align: left; padding: 12px 16px; background: rgba(59,130,246,0.1);
       color: var(--accent-cyan); font-weight: 600; font-size: 0.75rem;
       text-transform: uppercase; letter-spacing: 0.05em;
     }
@@ -585,7 +585,7 @@
       border: 1px solid var(--border-color);
     }
     .dash-table th {
-      text-align: left; padding: 12px 16px; background: rgba(234,88,12,0.08);
+      text-align: left; padding: 12px 16px; background: rgba(59,130,246,0.08);
       color: var(--text-secondary); font-weight: 600; font-size: 0.75rem;
       text-transform: uppercase; letter-spacing: 0.05em;
     }
@@ -599,7 +599,7 @@
     }
     .dash-table .status-badge.sent { background: rgba(22,163,74,0.15); color: var(--accent-green); }
     .dash-table .status-badge.queued { background: rgba(217,119,6,0.15); color: var(--accent-amber); }
-    .dash-table .status-badge.new { background: rgba(234,88,12,0.15); color: var(--accent-indigo); }
+    .dash-table .status-badge.new { background: rgba(59,130,246,0.15); color: var(--accent-indigo); }
     .dash-pipeline-status {
       margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 12px;
@@ -843,7 +843,7 @@
           <rect x="2" y="10" width="36" height="20" rx="4" stroke="url(#navGrad)" stroke-width="2"/>
           <path d="M8 18h8m-4 4v-8" stroke="url(#navGrad)" stroke-width="2" stroke-linecap="round"/>
           <circle cx="28" cy="20" r="3" fill="url(#navGrad)"/>
-          <defs><linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#155e75"/></linearGradient></defs>
+          <defs><linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
         </svg>
         <span class="logo-text">NAVI Pro</span>
       </a>
@@ -966,9 +966,9 @@
               <div class="score-top">
                 <div class="score-circle">
                   <svg viewBox="0 0 36 36">
-                    <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(24,20,18,0.03)" stroke-width="3"/>
+                    <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(15,23,42,0.03)" stroke-width="3"/>
                     <circle cx="18" cy="18" r="16" fill="none" stroke="url(#scoreGrad)" stroke-width="3" stroke-dasharray="100" stroke-dashoffset="100" stroke-linecap="round" id="scoreCircle"/>
-                    <defs><linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#155e75"/></linearGradient></defs>
+                    <defs><linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
                   </svg>
                   <span class="score-value" id="scoreTotal">0</span>
                 </div>
@@ -1012,7 +1012,7 @@
             </div>
             <div class="msg-preview" id="msgPreview"></div>
             <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
-              <div style="padding:10px 16px; border-radius:var(--radius-sm); background:rgba(234,88,12,0.1); border:1px solid rgba(234,88,12,0.2); font-size:0.8rem; color:var(--accent-cyan);">
+              <div style="padding:10px 16px; border-radius:var(--radius-sm); background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); font-size:0.8rem; color:var(--accent-cyan);">
                 🎯 Template dipilih AI: <strong>Curiosity</strong>
               </div>
               <div style="padding:10px 16px; border-radius:var(--radius-sm); background:rgba(22,163,74,0.1); border:1px solid rgba(22,163,74,0.2); font-size:0.8rem; color:var(--accent-green);">
@@ -1128,8 +1128,8 @@
               <div class="dash-chart-title">📈 Lead Generation — 30 Hari Terakhir</div>
               <svg viewBox="0 0 600 120" fill="none" preserveAspectRatio="none" style="width:100%; height:120px;">
                 <defs>
-                  <linearGradient id="dashFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#155e75" stop-opacity="0.3"/><stop offset="100%" stop-color="#155e75" stop-opacity="0"/></linearGradient>
-                  <linearGradient id="dashLine" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#155e75"/></linearGradient>
+                  <linearGradient id="dashFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/><stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/></linearGradient>
+                  <linearGradient id="dashLine" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
                 </defs>
                 <path d="M0 100 L20 95 L40 88 L60 90 L80 75 L100 72 L120 65 L140 60 L160 55 L180 50 L200 48 L220 42 L240 45 L260 38 L280 35 L300 30 L320 28 L340 32 L360 25 L380 22 L400 20 L420 25 L440 18 L460 15 L480 20 L500 16 L520 12 L540 15 L560 10 L580 8 L600 5 L600 120 L0 120Z" fill="url(#dashFill)"/>
                 <path d="M0 100 L20 95 L40 88 L60 90 L80 75 L100 72 L120 65 L140 60 L160 55 L180 50 L200 48 L220 42 L240 45 L260 38 L280 35 L300 30 L320 28 L340 32 L360 25 L380 22 L400 20 L420 25 L440 18 L460 15 L480 20 L500 16 L520 12 L540 15 L560 10 L580 8 L600 5" stroke="url(#dashLine)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1174,10 +1174,10 @@
           <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Dashboard Overview</span></div>
           <div class="ss-content">
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
-              <div style="padding:8px; background:rgba(234,88,12,0.1); border-radius:6px; font-size:0.65rem;"><div style="color:var(--text-tertiary);">Leads</div><div style="font-weight:700; color:var(--accent-cyan);">1,234</div></div>
+              <div style="padding:8px; background:rgba(59,130,246,0.1); border-radius:6px; font-size:0.65rem;"><div style="color:var(--text-tertiary);">Leads</div><div style="font-weight:700; color:var(--accent-cyan);">1,234</div></div>
               <div style="padding:8px; background:rgba(22,163,74,0.1); border-radius:6px; font-size:0.65rem;"><div style="color:var(--text-tertiary);">Reply</div><div style="font-weight:700; color:var(--accent-green);">78%</div></div>
             </div>
-            <div style="height:40px; background:linear-gradient(90deg, rgba(234,88,12,0.2), rgba(21,94,117,0.2)); border-radius:6px;"></div>
+            <div style="height:40px; background:linear-gradient(90deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2)); border-radius:6px;"></div>
           </div>
           <div class="ss-label">Dashboard Overview</div>
         </div>
@@ -1185,7 +1185,7 @@
         <div class="screenshot-card" onclick="openLightbox(1)">
           <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Lead Scoring Detail</span></div>
           <div class="ss-content">
-            <div style="padding:12px; background:rgba(234,88,12,0.08); border-radius:8px; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+            <div style="padding:12px; background:rgba(59,130,246,0.08); border-radius:8px; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
               <div style="width:36px; height:36px; border-radius:50%; background:var(--gradient-main); display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:white;">94</div>
               <div style="font-size:0.7rem;"><div style="font-weight:600;">Fashion Corner ID</div><div style="color:var(--text-tertiary);">High Priority</div></div>
             </div>
@@ -1205,10 +1205,10 @@
             <div style="display:flex; gap:4px; margin-bottom:10px;">
               <div style="flex:1; padding:6px; background:rgba(22,163,74,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-green);">01 ✓</div>
               <div style="flex:1; padding:6px; background:rgba(22,163,74,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-green);">02 ✓</div>
-              <div style="flex:1; padding:6px; background:rgba(21,94,117,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-cyan);">03 ⟳</div>
-              <div style="flex:1; padding:6px; background:rgba(24,20,18,0.03); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--text-tertiary);">04</div>
+              <div style="flex:1; padding:6px; background:rgba(6,182,212,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-cyan);">03 ⟳</div>
+              <div style="flex:1; padding:6px; background:rgba(15,23,42,0.03); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--text-tertiary);">04</div>
             </div>
-            <div style="height:30px; background:repeating-linear-gradient(90deg, rgba(234,88,12,0.05) 0px, rgba(234,88,12,0.05) 1px, transparent 1px, transparent 8px); border-radius:4px;"></div>
+            <div style="height:30px; background:repeating-linear-gradient(90deg, rgba(59,130,246,0.05) 0px, rgba(59,130,246,0.05) 1px, transparent 1px, transparent 8px); border-radius:4px;"></div>
           </div>
           <div class="ss-label">Pipeline Monitoring</div>
         </div>
@@ -1216,11 +1216,11 @@
         <div class="screenshot-card" onclick="openLightbox(3)">
           <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Message Composer</span></div>
           <div class="ss-content">
-            <div style="padding:10px; background:rgba(234,88,12,0.08); border-radius:6px; margin-bottom:8px; font-size:0.65rem; color:var(--text-secondary);">
+            <div style="padding:10px; background:rgba(59,130,246,0.08); border-radius:6px; margin-bottom:8px; font-size:0.65rem; color:var(--text-secondary);">
               Hai <span style="color:var(--accent-cyan);">[Nama]</span>, sistem AI kami mendeteksi potensi growth tinggi di toko Anda...
             </div>
             <div style="display:flex; gap:4px;">
-              <div style="flex:1; padding:4px; background:var(--gradient-glow); border:1px solid rgba(234,88,12,0.3); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--accent-cyan);">🔮 Curiosity</div>
+              <div style="flex:1; padding:4px; background:var(--gradient-glow); border:1px solid rgba(59,130,246,0.3); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--accent-cyan);">🔮 Curiosity</div>
               <div style="flex:1; padding:4px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--text-tertiary);">💡 Pain Pt</div>
               <div style="flex:1; padding:4px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--text-tertiary);">📈 Data</div>
             </div>
@@ -1232,14 +1232,14 @@
           <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Analytics Charts</span></div>
           <div class="ss-content">
             <svg viewBox="0 0 200 60" fill="none" style="width:100%; height:60px;">
-              <defs><linearGradient id="ssFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#155e75" stop-opacity="0.3"/><stop offset="100%" stop-color="#155e75" stop-opacity="0"/></linearGradient></defs>
+              <defs><linearGradient id="ssFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/><stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/></linearGradient></defs>
               <path d="M0 50 L30 40 L60 45 L90 20 L120 25 L150 10 L180 15 L200 8 L200 60 L0 60Z" fill="url(#ssFill)"/>
-              <path d="M0 50 L30 40 L60 45 L90 20 L120 25 L150 10 L180 15 L200 8" stroke="#155e75" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M0 50 L30 40 L60 45 L90 20 L120 25 L150 10 L180 15 L200 8" stroke="#06b6d4" stroke-width="2" fill="none" stroke-linecap="round"/>
             </svg>
             <div style="display:flex; gap:6px; margin-top:8px;">
               <div style="flex:1; height:20px; background:rgba(22,163,74,0.15); border-radius:3px;"></div>
-              <div style="flex:1.5; height:20px; background:rgba(234,88,12,0.15); border-radius:3px;"></div>
-              <div style="flex:0.8; height:20px; background:rgba(21,94,117,0.15); border-radius:3px;"></div>
+              <div style="flex:1.5; height:20px; background:rgba(59,130,246,0.15); border-radius:3px;"></div>
+              <div style="flex:0.8; height:20px; background:rgba(6,182,212,0.15); border-radius:3px;"></div>
             </div>
           </div>
           <div class="ss-label">Analytics Charts</div>
@@ -1487,7 +1487,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
-        <svg viewBox="0 0 40 40" fill="none"><rect x="2" y="10" width="36" height="20" rx="4" stroke="url(#fGrad)" stroke-width="2"/><path d="M8 18h8m-4 4v-8" stroke="url(#fGrad)" stroke-width="2" stroke-linecap="round"/><circle cx="28" cy="20" r="3" fill="url(#fGrad)"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#155e75"/></linearGradient></defs></svg>
+        <svg viewBox="0 0 40 40" fill="none"><rect x="2" y="10" width="36" height="20" rx="4" stroke="url(#fGrad)" stroke-width="2"/><path d="M8 18h8m-4 4v-8" stroke="url(#fGrad)" stroke-width="2" stroke-linecap="round"/><circle cx="28" cy="20" r="3" fill="url(#fGrad)"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs></svg>
         NAVI Pro
       </div>
       <div class="footer-copy">&copy; 2025 NAVI Pro. AI Lead Generation Platform untuk E-commerce Indonesia.</div>

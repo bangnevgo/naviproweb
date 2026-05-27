@@ -37,13 +37,13 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Camera, href: '#', label: 'Instagram' },  
+  { icon: Camera, href: '#', label: 'Instagram' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
 ]
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background pt-12 pb-6">
+    <footer className="border-t border-blue-500/10 bg-[#0a0e1a] pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand column */}
@@ -58,14 +58,14 @@ export function Footer() {
                 <circle cx="16" cy="16" r="3" fill="white" />
                 <defs>
                   <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="32" y2="32">
-                    <stop stopColor="#ea580c" />
-                    <stop offset="1" stopColor="#155e75" />
+                    <stop stopColor="#3b82f6" />
+                    <stop offset="1" stopColor="#06b6d4" />
                   </linearGradient>
                 </defs>
               </svg>
               <span className="text-lg font-bold gradient-text">NAVI Pro</span>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-slate-500 mb-4">
               Platform AI-powered lead generation otomatis untuk seller Indonesia.
             </p>
             <div className="flex gap-3">
@@ -75,10 +75,10 @@ export function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-accent transition-colors"
+                    className="w-9 h-9 rounded-lg bg-blue-500/5 border border-blue-500/10 flex items-center justify-center hover:bg-blue-500/10 hover:border-blue-500/20 transition-colors"
                     aria-label={social.label}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 text-slate-400" />
                   </a>
                 )
               })}
@@ -88,13 +88,13 @@ export function Footer() {
           {/* Link columns */}
           {Object.values(footerLinks).map((section) => (
             <div key={section.title}>
-              <h4 className="font-semibold mb-3">{section.title}</h4>
+              <h4 className="font-semibold mb-3 text-white">{section.title}</h4>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-sm text-slate-500 hover:text-blue-400 transition-colors"
                     >
                       {link.label}
                     </a>
@@ -106,14 +106,14 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="pt-6 border-t border-blue-500/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-slate-600">
             © 2024 NAVI Pro. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-            <a href="#" className="hover:text-foreground transition-colors">Cookies</a>
+          <div className="flex items-center gap-4 text-sm text-slate-600">
+            <a href="#" className="hover:text-blue-400 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Terms</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Cookies</a>
           </div>
         </div>
       </div>

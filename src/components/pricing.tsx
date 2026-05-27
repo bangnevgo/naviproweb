@@ -23,7 +23,7 @@ const plans = [
       '500 DM/bulan',
       'Email support',
     ],
-    gradient: 'from-orange-600 to-orange-500',
+    gradient: 'from-blue-600 to-blue-500',
     popular: false,
   },
   {
@@ -42,7 +42,7 @@ const plans = [
       '4 AI templates',
       'Analytics dashboard',
     ],
-    gradient: 'from-orange-600 to-teal-700',
+    gradient: 'from-blue-600 to-cyan-500',
     popular: true,
   },
   {
@@ -62,7 +62,7 @@ const plans = [
       'Full API access',
       'SLA guarantee',
     ],
-    gradient: 'from-teal-700 to-teal-600',
+    gradient: 'from-violet-600 to-purple-600',
     popular: false,
   },
 ]
@@ -82,29 +82,29 @@ export function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-orange-700 dark:text-orange-500">Pricing</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-blue-400">Pricing</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
             Pilih Paket yang <span className="gradient-text">Tepat untuk Anda</span>
           </h2>
 
           {/* Billing toggle */}
           <div className="flex items-center justify-center gap-3">
-            <Label htmlFor="billing" className={`text-sm ${!yearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+            <Label htmlFor="billing" className={`text-sm ${!yearly ? 'text-white font-medium' : 'text-slate-500'}`}>
               Bulanan
             </Label>
             <Switch
               id="billing"
               checked={yearly}
               onCheckedChange={setYearly}
-              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-orange-600 data-[state=checked]:to-teal-700"
+              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-blue-600 data-[state=checked]:to-cyan-500"
             />
-            <Label htmlFor="billing" className={`text-sm ${yearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+            <Label htmlFor="billing" className={`text-sm ${yearly ? 'text-white font-medium' : 'text-slate-500'}`}>
               Tahunan
             </Label>
             {yearly && (
-              <span className="text-xs font-medium text-teal-700 bg-teal-700/10 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-medium text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
                 Hemat 30%
               </span>
             )}
@@ -121,36 +121,36 @@ export function Pricing() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`glass-card rounded-xl border bg-card p-6 transition-all duration-300 relative ${
+                className={`glass-card rounded-xl border bg-slate-900/50 p-6 transition-all duration-300 relative neon-border-glow ${
                   plan.popular
-                    ? 'border-orange-600/50 shadow-xl shadow-orange-600/10 md:-translate-y-4'
-                    : 'border-border hover:border-orange-600/30 hover:shadow-lg hover:shadow-orange-600/5'
+                    ? 'border-blue-500/40 shadow-xl shadow-blue-500/10 md:-translate-y-4'
+                    : 'border-blue-500/15 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-600 to-teal-700 text-white text-xs font-medium px-3 py-1 rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg shadow-blue-500/25">
                     Most Popular
                   </div>
                 )}
 
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.gradient} flex items-center justify-center mb-4`}>
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.gradient} flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
 
-                <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
+                <h3 className="text-xl font-bold mb-1 text-white">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-2">
                   <span className="text-3xl font-black gradient-text">
                     {yearly ? plan.yearlyPrice : plan.monthlyPrice}
                   </span>
-                  <span className="text-sm text-muted-foreground">{plan.period}</span>
+                  <span className="text-sm text-slate-500">{plan.period}</span>
                 </div>
-                <p className="text-sm text-muted-foreground mb-6">{plan.description}</p>
+                <p className="text-sm text-slate-400 mb-6">{plan.description}</p>
 
                 <Button
                   className={`w-full mb-6 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90'
-                      : 'border border-border hover:bg-accent'
+                      ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90 shadow-lg shadow-blue-500/25'
+                      : 'border border-blue-500/20 text-slate-300 hover:bg-blue-500/10 hover:text-blue-300 hover:border-blue-500/30'
                   }`}
                   variant={plan.popular ? 'default' : 'outline'}
                 >
@@ -159,8 +159,8 @@ export function Pricing() {
 
                 <ul className="space-y-3">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-teal-700 flex-shrink-0" />
+                    <li key={feature} className="flex items-center gap-2 text-sm text-slate-300">
+                      <Check className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -175,7 +175,7 @@ export function Pricing() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-sm text-muted-foreground mt-8"
+          className="text-center text-sm text-slate-500 mt-8"
         >
           14 hari gratis tanpa kartu kredit · Batalkan kapan saja · Garansi uang kembali 30 hari
         </motion.p>

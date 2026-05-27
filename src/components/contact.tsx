@@ -86,11 +86,10 @@ export function Contact() {
     if (!validate()) return
 
     setLoading(true)
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500))
     setLoading(false)
 
-    toast.success('Pendaftaran berhasil! 🎉', {
+    toast.success('Pendaftaran berhasil!', {
       description: 'Tim kami akan menghubungi Anda dalam 24 jam.',
     })
 
@@ -116,15 +115,15 @@ export function Contact() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm">
-              <span className="text-orange-700 dark:text-orange-500">Coba Gratis</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm">
+              <span className="text-blue-400">Coba Gratis</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
               Mulai Lead Generation <span className="gradient-text">Otomatis Hari Ini</span>
             </h2>
 
-            <p className="text-muted-foreground">
+            <p className="text-slate-400">
               Daftar sekarang dan nikmati 14 hari gratis tanpa kartu kredit. Setup hanya 5 menit.
             </p>
 
@@ -134,12 +133,12 @@ export function Contact() {
                 const Icon = benefit.icon
                 return (
                   <div key={benefit.label} className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-600 to-teal-700 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold">{benefit.label}</p>
-                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                      <p className="font-semibold text-white">{benefit.label}</p>
+                      <p className="text-sm text-slate-400">{benefit.description}</p>
                     </div>
                   </div>
                 )
@@ -147,8 +146,8 @@ export function Contact() {
             </div>
 
             {/* Guarantee */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground pt-2">
-              <ShieldCheck className="w-4 h-4 text-teal-700" />
+            <div className="flex items-center gap-2 text-sm text-slate-500 pt-2">
+              <ShieldCheck className="w-4 h-4 text-cyan-400" />
               <span>14 hari gratis · Tanpa kartu kredit · Garansi uang kembali 30 hari</span>
             </div>
           </motion.div>
@@ -159,62 +158,62 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="glass-card rounded-xl border border-border bg-card p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 space-y-4 neon-border-glow">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nama Lengkap</Label>
+                  <Label htmlFor="name" className="text-slate-300">Nama Lengkap</Label>
                   <Input
                     id="name"
                     placeholder="John Doe"
                     value={form.name}
                     onChange={(e) => updateField('name', e.target.value)}
-                    className={errors.name ? 'border-destructive' : ''}
+                    className={`bg-slate-800/50 border-blue-500/15 text-slate-200 placeholder:text-slate-600 focus:border-blue-500/40 ${errors.name ? 'border-destructive' : ''}`}
                   />
                   {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">No. Telepon</Label>
+                  <Label htmlFor="phone" className="text-slate-300">No. Telepon</Label>
                   <Input
                     id="phone"
                     placeholder="08123456789"
                     value={form.phone}
                     onChange={(e) => updateField('phone', e.target.value)}
-                    className={errors.phone ? 'border-destructive' : ''}
+                    className={`bg-slate-800/50 border-blue-500/15 text-slate-200 placeholder:text-slate-600 focus:border-blue-500/40 ${errors.phone ? 'border-destructive' : ''}`}
                   />
                   {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-slate-300">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="john@example.com"
                   value={form.email}
                   onChange={(e) => updateField('email', e.target.value)}
-                  className={errors.email ? 'border-destructive' : ''}
+                  className={`bg-slate-800/50 border-blue-500/15 text-slate-200 placeholder:text-slate-600 focus:border-blue-500/40 ${errors.email ? 'border-destructive' : ''}`}
                 />
                 {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="storeUrl">URL Toko</Label>
+                <Label htmlFor="storeUrl" className="text-slate-300">URL Toko</Label>
                 <Input
                   id="storeUrl"
                   placeholder="https://tokopedia.com/toko-anda"
                   value={form.storeUrl}
                   onChange={(e) => updateField('storeUrl', e.target.value)}
-                  className={errors.storeUrl ? 'border-destructive' : ''}
+                  className={`bg-slate-800/50 border-blue-500/15 text-slate-200 placeholder:text-slate-600 focus:border-blue-500/40 ${errors.storeUrl ? 'border-destructive' : ''}`}
                 />
                 {errors.storeUrl && <p className="text-xs text-destructive">{errors.storeUrl}</p>}
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Kategori</Label>
+                  <Label className="text-slate-300">Kategori</Label>
                   <Select value={form.category} onValueChange={(v) => updateField('category', v)}>
-                    <SelectTrigger className={errors.category ? 'border-destructive' : ''}>
+                    <SelectTrigger className={`bg-slate-800/50 border-blue-500/15 text-slate-200 ${errors.category ? 'border-destructive' : ''}`}>
                       <SelectValue placeholder="Pilih kategori" />
                     </SelectTrigger>
                     <SelectContent>
@@ -228,9 +227,9 @@ export function Contact() {
                   {errors.category && <p className="text-xs text-destructive">{errors.category}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label>Paket</Label>
+                  <Label className="text-slate-300">Paket</Label>
                   <Select value={form.plan} onValueChange={(v) => updateField('plan', v)}>
-                    <SelectTrigger className={errors.plan ? 'border-destructive' : ''}>
+                    <SelectTrigger className={`bg-slate-800/50 border-blue-500/15 text-slate-200 ${errors.plan ? 'border-destructive' : ''}`}>
                       <SelectValue placeholder="Pilih paket" />
                     </SelectTrigger>
                     <SelectContent>
@@ -246,19 +245,20 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Pesan (opsional)</Label>
+                <Label htmlFor="message" className="text-slate-300">Pesan (opsional)</Label>
                 <Textarea
                   id="message"
                   placeholder="Ceritakan kebutuhan Anda..."
                   rows={3}
                   value={form.message}
                   onChange={(e) => updateField('message', e.target.value)}
+                  className="bg-slate-800/50 border-blue-500/15 text-slate-200 placeholder:text-slate-600 focus:border-blue-500/40"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-600 to-teal-700 text-white hover:opacity-90 gap-2"
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90 gap-2 shadow-lg shadow-blue-500/25"
                 disabled={loading}
               >
                 {loading ? (

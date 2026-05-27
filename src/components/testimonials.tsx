@@ -55,7 +55,7 @@ export function Testimonials() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section id="testimonials" className="py-20 lg:py-28 bg-secondary" ref={sectionRef}>
+    <section id="testimonials" className="py-20 lg:py-28 bg-[#0c1025]" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -64,10 +64,10 @@ export function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange-600/30 bg-orange-600/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-orange-700 dark:text-orange-500">Social Proof</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-blue-400">Social Proof</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Cerita Sukses Seller <span className="gradient-text">NAVI Pro</span>
           </h2>
         </motion.div>
@@ -80,34 +80,34 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`glass-card rounded-xl border bg-card p-6 hover:border-orange-600/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/5 relative ${
+              className={`glass-card rounded-xl border bg-slate-900/50 p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 relative neon-border-glow ${
                 testimonial.featured
-                  ? 'border-orange-600/50 shadow-lg shadow-orange-600/10 md:-translate-y-2'
-                  : 'border-border'
+                  ? 'border-blue-500/40 shadow-lg shadow-blue-500/10 md:-translate-y-2'
+                  : 'border-blue-500/15'
               }`}
             >
               {testimonial.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-600 to-teal-700 text-white text-xs font-medium px-3 py-1 rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg shadow-blue-500/25">
                   Featured
                 </div>
               )}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-4 h-4 fill-cyan-400 text-cyan-400" />
                   ))}
                 </div>
                 <span className="text-sm font-bold gradient-text">{testimonial.metric}</span>
               </div>
-              <Quote className="w-6 h-6 text-muted-foreground/20 mb-2" />
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{testimonial.text}</p>
+              <Quote className="w-6 h-6 text-blue-500/20 mb-2" />
+              <p className="text-sm text-slate-400 mb-4 leading-relaxed">{testimonial.text}</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-600 to-teal-700 flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  <p className="text-sm font-semibold text-white">{testimonial.name}</p>
+                  <p className="text-xs text-slate-500">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -128,7 +128,7 @@ export function Testimonials() {
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-2xl font-bold gradient-text">{stat.value}</p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="text-sm text-slate-500">{stat.label}</p>
             </div>
           ))}
         </motion.div>
