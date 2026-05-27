@@ -395,42 +395,42 @@
     .step-header h3 { font-size: 1.15rem; font-weight: 700; }
     .step-header p { font-size: 0.85rem; color: var(--text-secondary); }
 
-    /* Terminal style */
-    .terminal {
-      background: #0a0e1a; border: 1px solid rgba(59,130,246,0.15);
-      border-radius: var(--radius-md); padding: 20px; font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: 0.8rem; line-height: 1.8; color: #c9d1d9;
-      max-height: 320px; overflow-y: auto;
-    }
-    .terminal .t-green { color: #3fb950; }
-    .terminal .t-cyan { color: #58a6ff; }
-    .terminal .t-yellow { color: #d29922; }
-    .terminal .t-red { color: #f85149; }
-    .terminal .t-purple { color: #bc8cff; }
-    .terminal .t-dim { color: #484f58; }
-    .terminal .t-bold { font-weight: 700; }
-    .terminal .cursor-blink::after {
-      content: '█'; animation: blink 1s step-end infinite; color: var(--accent-cyan);
-    }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-    /* Enricher table */
+    /* Enricher table - FIXED */
     .enrich-table {
       width: 100%; border-collapse: separate; border-spacing: 0;
       font-size: 0.8rem; background: var(--bg-glass);
       border-radius: var(--radius-md); overflow: hidden;
       border: 1px solid var(--border-color);
+      max-height: 350px; 
+      display: block;
+      overflow-y: auto;
+    }
+    .enrich-table thead {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    .enrich-table tbody {
+      display: block;
+      overflow-y: auto;
+      max-height: 300px;
+    }
+    .enrich-table tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
     }
     .enrich-table th {
       text-align: left; padding: 12px 16px; background: rgba(59,130,246,0.1);
       color: var(--accent-cyan); font-weight: 600; font-size: 0.75rem;
       text-transform: uppercase; letter-spacing: 0.05em;
+      position: sticky; top: 0;
     }
     .enrich-table td {
       padding: 10px 16px; border-top: 1px solid var(--border-color);
       color: var(--text-secondary);
     }
-    .enrich-table tr:hover td { background: var(--bg-card-hover); }
+    .enrich-table tbody tr:hover td { background: var(--bg-card-hover); }
     .enrich-table .new-field {
       color: var(--accent-green); font-weight: 600;
       animation: highlightNew 1s ease;
@@ -438,410 +438,6 @@
     @keyframes highlightNew {
       from { background: rgba(22,163,74,0.2); } to { background: transparent; }
     }
-
-    /* Scorer visual */
-    .score-card {
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px;
-    }
-    .score-top { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
-    .score-circle {
-      width: 100px; height: 100px; border-radius: 50%; position: relative;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .score-circle svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
-    .score-circle .score-value {
-      font-size: 1.8rem; font-weight: 800;
-      background: var(--gradient-main); -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .score-details { flex: 1; }
-    .score-bar-item { margin-bottom: 10px; }
-    .score-bar-label {
-      display: flex; justify-content: space-between; font-size: 0.8rem;
-      margin-bottom: 4px; color: var(--text-secondary);
-    }
-    .score-bar-track {
-      height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden;
-    }
-    .score-bar-fill {
-      height: 100%; border-radius: 4px; background: var(--gradient-main);
-      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-      width: 0;
-    }
-    .score-badge {
-      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
-      border-radius: 50px; font-size: 0.8rem; font-weight: 700;
-    }
-    .score-badge.high { background: rgba(22,163,74,0.15); color: var(--accent-green); border: 1px solid rgba(22,163,74,0.3); }
-
-    .leaderboard { margin-top: 16px; }
-    .lb-row {
-      display: flex; align-items: center; gap: 12px; padding: 10px 16px;
-      border-radius: var(--radius-sm); margin-bottom: 6px;
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      font-size: 0.85rem; transition: all var(--transition);
-    }
-    .lb-row:hover { background: var(--bg-card-hover); }
-    .lb-rank { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; }
-    .lb-rank.gold { background: rgba(217,119,6,0.2); color: var(--accent-amber); }
-    .lb-rank.silver { background: rgba(156,163,175,0.2); color: #9ca3af; }
-    .lb-rank.bronze { background: rgba(180,120,60,0.2); color: #cd7f32; }
-    .lb-name { flex: 1; font-weight: 500; }
-    .lb-score { font-weight: 700; color: var(--accent-cyan); }
-    .lb-priority { font-size: 0.7rem; padding: 3px 8px; border-radius: 50px; font-weight: 600; }
-    .lb-priority.high { background: rgba(22,163,74,0.15); color: var(--accent-green); }
-    .lb-priority.medium { background: rgba(217,119,6,0.15); color: var(--accent-amber); }
-
-    /* URL Generator */
-    .url-gen-output {
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px;
-    }
-    .url-line {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
-      font-size: 0.8rem; font-family: 'SF Mono', monospace;
-    }
-    .url-line .label { color: var(--text-tertiary); min-width: 80px; }
-    .url-line .value { color: var(--accent-cyan); word-break: break-all; }
-    .url-line .value.highlight { color: var(--accent-green); }
-    .qr-placeholder {
-      width: 100px; height: 100px; border: 2px dashed var(--border-glow);
-      border-radius: var(--radius-sm); display: flex; align-items: center;
-      justify-content: center; margin: 16px auto; color: var(--text-tertiary);
-      font-size: 0.7rem; text-align: center;
-    }
-    .tracking-pixel {
-      display: flex; align-items: center; gap: 8px; padding: 12px 16px;
-      background: rgba(22,163,74,0.08); border: 1px solid rgba(22,163,74,0.2);
-      border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--accent-green);
-    }
-
-    /* Message Composer */
-    .template-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; border-bottom: 2px solid var(--border-color); }
-    .template-tab {
-      padding: 12px 20px; border-radius: 0;
-      background: transparent; border: none; border-bottom: 3px solid transparent;
-      color: var(--text-secondary); cursor: pointer; font-size: 0.8rem;
-      font-weight: 600; transition: all var(--transition);
-      font-family: var(--font-main); position: relative;
-    }
-    .template-tab:hover { color: var(--text-primary); border-bottom-color: var(--border-color); }
-    .template-tab.active {
-      color: var(--accent-cyan); border-bottom-color: var(--accent-cyan);
-      background: transparent;
-    }
-    .template-tab.active::before {
-      content: ''; position: absolute; bottom: -5px; left: 0; right: 0;
-      height: 3px; background: var(--gradient-main);
-      box-shadow: 0 0 20px rgba(59,130,246,0.5);
-    }
-    .msg-preview {
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); padding: 20px; min-height: 160px;
-    }
-    .msg-preview .msg-from { font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 12px; }
-    .msg-preview .msg-body { font-size: 0.9rem; line-height: 1.7; color: var(--text-primary); }
-    .msg-preview .msg-body .dynamic { color: var(--accent-cyan); font-weight: 600; }
-    .msg-preview .msg-body .metric { color: var(--accent-green); font-weight: 600; }
-    .msg-preview .msg-body .emoji { font-size: 1rem; }
-
-    /* Multi-Channel DM */
-    .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
-    .channel-card {
-      padding: 16px; border-radius: var(--radius-md);
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      display: flex; align-items: center; gap: 12px;
-      transition: all var(--transition);
-    }
-    .channel-card.sent { border-color: rgba(22,163,74,0.3); }
-    .channel-card.sent .ch-icon { color: var(--accent-green); }
-    .ch-icon { font-size: 1.4rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); background: var(--bg-card); }
-    .ch-info { flex: 1; }
-    .ch-name { font-weight: 600; font-size: 0.85rem; }
-    .ch-status { font-size: 0.75rem; color: var(--text-tertiary); }
-    .ch-check { color: var(--accent-green); font-size: 1.2rem; font-weight: 700; opacity: 0; transition: all 0.5s ease; }
-    .ch-check.show { opacity: 1; }
-    .delivery-report {
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); padding: 20px;
-    }
-    .dr-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 0.85rem; }
-    .dr-row:last-child { border-bottom: none; }
-    .dr-label { color: var(--text-secondary); }
-    .dr-value { font-weight: 600; }
-    .dr-value.good { color: var(--accent-green); }
-
-    /* Pipeline summary */
-    .pipeline-summary {
-      text-align: center; padding: 40px 20px;
-    }
-    .summary-icon {
-      width: 80px; height: 80px; border-radius: 50%;
-      background: rgba(22,163,74,0.1); border: 2px solid var(--accent-green);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px; font-size: 2rem;
-    }
-    .summary-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
-    .summary-stat { font-size: 1.1rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 8px; }
-    .summary-detail { color: var(--text-secondary); font-size: 0.95rem; }
-
-    /* ===== DASHBOARD PREVIEW ===== */
-    .dashboard-mock {
-      background: var(--bg-secondary); border: 1px solid var(--border-color);
-      border-radius: var(--radius-xl); overflow: hidden;
-      box-shadow: var(--shadow-card);
-    }
-    .dash-topbar {
-      display: flex; align-items: center; gap: 8px; padding: 12px 20px;
-      background: var(--bg-card); border-bottom: 1px solid var(--border-color);
-    }
-    .dash-body { display: flex; min-height: 500px; }
-    .dash-sidebar {
-      width: 220px; border-right: 1px solid var(--border-color);
-      padding: 20px 0; flex-shrink: 0;
-      background: var(--bg-card);
-    }
-    .dash-sidebar-item {
-      display: flex; align-items: center; gap: 10px; padding: 12px 20px;
-      font-size: 0.85rem; color: var(--text-secondary); cursor: pointer;
-      transition: all var(--transition); border-left: 3px solid transparent;
-      position: relative;
-    }
-    .dash-sidebar-item:hover {
-      background: var(--bg-card-hover); color: var(--text-primary);
-      transform: translateX(4px);
-    }
-    .dash-sidebar-item.active {
-      background: var(--gradient-glow); color: var(--accent-cyan);
-      border-left-color: var(--accent-cyan);
-      box-shadow: inset -3px 0 12px rgba(59,130,246,0.15);
-    }
-    .dash-sidebar-item svg { width: 18px; height: 18px; }
-    .dash-main { flex: 1; padding: 24px; overflow-y: auto; }
-    .dash-metrics {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px; margin-bottom: 24px;
-    }
-    .dash-metric-card {
-      padding: 20px; border-radius: var(--radius-md);
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      transition: all var(--transition);
-    }
-    .dash-metric-card:hover { border-color: var(--border-glow); }
-    .dm-label { font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .dm-value { font-size: 1.5rem; font-weight: 800; }
-    .dm-trend { font-size: 0.75rem; font-weight: 600; margin-top: 4px; }
-    .dm-trend.up { color: var(--accent-green); }
-    .dash-chart {
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;
-    }
-    .dash-chart-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 16px; }
-    .dash-table {
-      width: 100%; border-collapse: separate; border-spacing: 0;
-      font-size: 0.8rem; background: var(--bg-glass);
-      border-radius: var(--radius-md); overflow: hidden;
-      border: 1px solid var(--border-color);
-    }
-    .dash-table th {
-      text-align: left; padding: 12px 16px; background: rgba(59,130,246,0.08);
-      color: var(--text-secondary); font-weight: 600; font-size: 0.75rem;
-      text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .dash-table td {
-      padding: 10px 16px; border-top: 1px solid var(--border-color); color: var(--text-secondary);
-    }
-    .dash-table tr:hover td { background: var(--bg-card-hover); color: var(--text-primary); }
-    .dash-table .status-badge {
-      display: inline-block; padding: 2px 8px; border-radius: 50px;
-      font-size: 0.7rem; font-weight: 600;
-    }
-    .dash-table .status-badge.sent { background: rgba(22,163,74,0.15); color: var(--accent-green); }
-    .dash-table .status-badge.queued { background: rgba(217,119,6,0.15); color: var(--accent-amber); }
-    .dash-table .status-badge.new { background: rgba(59,130,246,0.15); color: var(--accent-indigo); }
-    .dash-pipeline-status {
-      margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-    }
-    .dash-agent-status {
-      padding: 14px; border-radius: var(--radius-sm);
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      display: flex; align-items: center; gap: 10px; font-size: 0.8rem;
-    }
-    .agent-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent-green); animation: pulse-dot 2s infinite; flex-shrink: 0;
-    }
-    .agent-dot.idle { background: var(--text-tertiary); animation: none; }
-
-    /* ===== SCREENSHOTS ===== */
-    .screenshots-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .screenshot-card {
-      border-radius: var(--radius-lg); overflow: hidden;
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      transition: all var(--transition); cursor: pointer;
-    }
-    .screenshot-card:hover {
-      transform: translateY(-4px); box-shadow: var(--shadow-glow);
-      border-color: var(--border-glow);
-    }
-    .ss-browser-bar {
-      display: flex; align-items: center; gap: 8px; padding: 12px 16px;
-      background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);
-    }
-    .ss-dots { display: flex; gap: 6px; }
-    .ss-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .ss-title { font-size: 0.7rem; color: var(--text-tertiary); flex: 1; text-align: center; }
-    .ss-content {
-      padding: 24px; min-height: 200px;
-      background: var(--bg-tertiary);
-    }
-    .ss-label { text-align: center; padding: 14px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }
-
-    /* Lightbox */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.9);
-      display: none; align-items: center; justify-content: center; padding: 40px;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox-content {
-      max-width: 900px; width: 100%; background: var(--bg-secondary);
-      border-radius: var(--radius-xl); overflow: hidden;
-      border: 1px solid var(--border-color); animation: fadeSlideIn 0.3s ease;
-    }
-    .lightbox-close {
-      position: absolute; top: 20px; right: 20px; width: 40px; height: 40px;
-      border-radius: 50%; background: rgba(255,255,255,0.1); border: none;
-      color: white; font-size: 1.5rem; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    /* ===== ARCHITECTURE ===== */
-    .arch-diagram {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .arch-layer {
-      background: var(--bg-card); border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg); padding: 24px;
-      transition: all var(--transition); position: relative;
-    }
-    .arch-layer:hover { border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
-    .arch-layer-title {
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--accent-cyan); font-weight: 700; margin-bottom: 16px;
-    }
-    .arch-node {
-      padding: 10px 14px; border-radius: var(--radius-sm);
-      background: var(--bg-glass); border: 1px solid var(--border-color);
-      margin-bottom: 8px; font-size: 0.85rem; font-weight: 500;
-      transition: all var(--transition); position: relative; cursor: default;
-    }
-    .arch-node:hover { border-color: var(--accent-indigo); background: var(--bg-card-hover); }
-    .arch-tooltip {
-      display: none; position: absolute; bottom: calc(100% + 8px); left: 50%;
-      transform: translateX(-50%); padding: 8px 12px; background: var(--bg-tertiary);
-      border: 1px solid var(--border-glow); border-radius: var(--radius-sm);
-      font-size: 0.7rem; color: var(--text-secondary); white-space: nowrap;
-      z-index: 10; box-shadow: var(--shadow-card);
-    }
-    .arch-node:hover .arch-tooltip { display: block; }
-    .arch-connector {
-      text-align: center; padding: 8px 0; color: var(--text-tertiary);
-    }
-
-    /* ===== USAGE GUIDE ===== */
-    .guide-steps { max-width: 700px; margin: 0 auto; }
-    .guide-step {
-      border: 1px solid var(--border-color); border-radius: var(--radius-md);
-      margin-bottom: 8px; overflow: hidden; transition: all var(--transition);
-    }
-    .guide-step:hover { border-color: var(--border-glow); }
-    .guide-step.open { border-color: var(--accent-indigo); }
-    .guide-step-header {
-      display: flex; align-items: center; gap: 16px; padding: 18px 20px;
-      cursor: pointer; background: var(--bg-glass);
-      transition: all var(--transition);
-    }
-    .guide-step-header:hover { background: var(--bg-card-hover); }
-    .guide-step-num {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--gradient-main); display: flex;
-      align-items: center; justify-content: center;
-      font-weight: 800; font-size: 0.85rem; color: white; flex-shrink: 0;
-    }
-    .guide-step-title { font-weight: 600; font-size: 0.95rem; flex: 1; }
-    .guide-step-time { font-size: 0.8rem; color: var(--accent-cyan); font-weight: 500; }
-    .guide-step-arrow {
-      transition: transform var(--transition); color: var(--text-tertiary);
-    }
-    .guide-step.open .guide-step-arrow { transform: rotate(180deg); }
-    .guide-step-body {
-      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
-    }
-    .guide-step.open .guide-step-body { max-height: 500px; }
-    .guide-step-content {
-      padding: 20px 24px 24px 72px; color: var(--text-secondary);
-      font-size: 0.9rem; line-height: 1.7;
-    }
-    .guide-step-content li { margin-bottom: 6px; }
-    .guide-progress { margin-top: 32px; }
-    .progress-bar-track {
-      height: 8px; background: var(--bg-tertiary); border-radius: 4px;
-      overflow: hidden; margin-top: 8px;
-    }
-    .progress-bar-fill {
-      height: 100%; background: var(--gradient-main); border-radius: 4px;
-      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .progress-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
-
-    /* ===== COMPARISON ===== */
-    .comparison-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-      max-width: 800px; margin: 0 auto;
-    }
-    .compare-card {
-      padding: 32px; border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color); background: var(--bg-card);
-    }
-    .compare-card.before { border-color: rgba(220,38,38,0.2); }
-    .compare-card.after { border-color: rgba(22,163,74,0.3); box-shadow: 0 0 30px rgba(22,163,74,0.08); }
-    .compare-label {
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
-      font-weight: 700; margin-bottom: 20px;
-    }
-    .compare-card.before .compare-label { color: var(--accent-red); }
-    .compare-card.after .compare-label { color: var(--accent-green); }
-    .compare-item {
-      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px;
-      font-size: 0.9rem; color: var(--text-secondary);
-    }
-    .compare-item .icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
-    .compare-card.before .icon { color: var(--accent-red); }
-    .compare-card.after .icon { color: var(--accent-green); }
-    .compare-item strong { color: var(--text-primary); }
-
-    /* ===== CTA SECTION ===== */
-    .cta-section {
-      text-align: center; padding: 100px 24px;
-      background: var(--bg-secondary); position: relative; overflow: hidden;
-    }
-    .cta-orb {
-      position: absolute; width: 400px; height: 400px; border-radius: 50%;
-      filter: blur(100px); opacity: 0.3;
-    }
-    .cta-orb-1 { background: var(--accent-indigo); top: -150px; left: -100px; }
-    .cta-orb-2 { background: var(--accent-cyan); bottom: -150px; right: -100px; }
-    .cta-content { position: relative; z-index: 1; }
-    .cta-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; }
-    .cta-subtitle { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 32px; }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* ===== FOOTER ===== */
     .footer {
@@ -878,24 +474,14 @@
       .flow-node { padding: 8px 10px; font-size: 0.7rem; }
       .sim-body { padding: 20px 16px; min-height: 300px; }
       .sim-header { padding: 16px; flex-direction: column; align-items: flex-start; }
-      .dash-sidebar { display: none; }
-      .dash-metrics { grid-template-columns: 1fr 1fr; }
-      .screenshots-grid { grid-template-columns: 1fr; }
-      .comparison-grid { grid-template-columns: 1fr; }
-      .channel-grid { grid-template-columns: 1fr; }
-      .score-top { flex-direction: column; align-items: flex-start; }
       .enrich-table { font-size: 0.7rem; }
       .enrich-table th, .enrich-table td { padding: 8px 10px; }
-      .arch-diagram { grid-template-columns: 1fr; }
-      .template-tabs { border-bottom: 1px solid var(--border-color); }
     }
 
     @media (max-width: 480px) {
       .hero-title { font-size: 1.8rem; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn-large { width: 100%; justify-content: center; }
-      .dash-metrics { grid-template-columns: 1fr; }
-      .template-tabs { flex-direction: column; }
     }
   </style>
 </head>
@@ -916,16 +502,13 @@
       <div class="nav-menu" id="navMenu">
         <a href="#pipeline" class="nav-link">Pipeline Demo</a>
         <a href="#dashboard" class="nav-link">Dashboard</a>
-        <a href="#screenshots" class="nav-link">Screenshots</a>
-        <a href="#architecture" class="nav-link">Tech Stack</a>
-        <a href="#guide" class="nav-link">Panduan</a>
       </div>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M19.364 19.364l-1.414-1.414M6.05 6.05L4.636 4.636" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a href="/" class="btn btn-secondary">Kembali ke Beranda</a>
+        <a href="/" class="btn btn-secondary">Kembali</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -943,7 +526,6 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Mulai Demo
         </a>
-        <a href="#dashboard" class="btn btn-secondary btn-large">Lihat Dashboard</a>
       </div>
       <div class="pipeline-flow">
         <div class="flow-node"><span class="node-num">01</span> Scraper</div>
@@ -997,554 +579,30 @@
             <button class="btn btn-primary btn-large" id="startPipeline">▶ Mulai Pipeline</button>
           </div>
 
-          <!-- Step 1: Data Scraper -->
-          <div class="sim-step" id="step1">
-            <div class="step-header">
-              <div class="step-icon-lg">01</div>
-              <div><h3>Data Scraper</h3><p>Scraping data masif dari platform e-commerce secara real-time</p></div>
-            </div>
-            <div class="terminal" id="terminal1"></div>
-            <div style="margin-top:16px; text-align:center;">
-              <div style="font-size:1.3rem; font-weight:800; color:var(--accent-green);" id="scraperCount"></div>
-              <div style="font-size:0.8rem; color:var(--text-secondary);">leads terkumpul</div>
-            </div>
-          </div>
-
           <!-- Step 2: Data Enricher -->
           <div class="sim-step" id="step2">
             <div class="step-header">
-              <div class="step-icon-lg">02</div>
-              <div><h3>Data Enricher</h3><p>Enrichment data mentah dengan AI-powered insights</p></div>
+              <div class="step-icon-lg" data-step="02">📊</div>
+              <div>
+                <h3>Data Enricher Agent</h3>
+                <p>Menambahkan data pelengkap dari multiple sources</p>
+              </div>
             </div>
             <table class="enrich-table" id="enrichTable">
-              <thead><tr><th>Nama Toko</th><th>Platform</th><th>Rating</th><th>Niche</th><th>Est. GMV</th><th>Growth</th></tr></thead>
-              <tbody id="enrichBody"></tbody>
-            </table>
-          </div>
-
-          <!-- Step 3: AI Scorer -->
-          <div class="sim-step" id="step3">
-            <div class="step-header">
-              <div class="step-icon-lg">03</div>
-              <div><h3>AI Scorer</h3><p>Scoring dengan 100 parameter ML — analisis mendalam per lead</p></div>
-            </div>
-            <div class="score-card">
-              <div class="score-top">
-                <div class="score-circle">
-                  <svg viewBox="0 0 36 36">
-                    <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(15,23,42,0.03)" stroke-width="3"/>
-                    <circle cx="18" cy="18" r="16" fill="none" stroke="url(#scoreGrad)" stroke-width="3" stroke-dasharray="100" stroke-dashoffset="100" stroke-linecap="round" id="scoreCircle"/>
-                    <defs><linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-                  </svg>
-                  <span class="score-value" id="scoreTotal">0</span>
-                </div>
-                <div class="score-details">
-                  <div class="score-bar-item"><div class="score-bar-label"><span>Rating & Reviews</span><span id="scoreR">0/20</span></div><div class="score-bar-track"><div class="score-bar-fill" id="barR"></div></div></div>
-                  <div class="score-bar-item"><div class="score-bar-label"><span>Order Volume</span><span id="scoreV">0/25</span></div><div class="score-bar-track"><div class="score-bar-fill" id="barV"></div></div></div>
-                  <div class="score-bar-item"><div class="score-bar-label"><span>GMV Analysis</span><span id="scoreG">0/25</span></div><div class="score-bar-track"><div class="score-bar-fill" id="barG"></div></div></div>
-                  <div class="score-bar-item"><div class="score-bar-label"><span>Growth Signals</span><span id="scoreS">0/30</span></div><div class="score-bar-track"><div class="score-bar-fill" id="barS"></div></div></div>
-                  <div style="margin-top:10px"><span class="score-badge high" id="scoreBadge" style="opacity:0">🚀 High Priority — Instant Send</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="leaderboard" id="leaderboard"></div>
-          </div>
-
-          <!-- Step 4: URL Generator -->
-          <div class="sim-step" id="step4">
-            <div class="step-header">
-              <div class="step-icon-lg">04</div>
-              <div><h3>URL Generator</h3><p>Generate personalized demo pages dengan tracking unik</p></div>
-            </div>
-            <div class="url-gen-output" id="urlOutput"></div>
-            <div class="qr-placeholder" id="qrArea">QR Code<br>untuk Lead</div>
-            <div class="tracking-pixel" id="trackingPixel" style="opacity:0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Tracking pixel embedded — analytics ready
-            </div>
-          </div>
-
-          <!-- Step 5: Message Composer -->
-          <div class="sim-step" id="step5">
-            <div class="step-header">
-              <div class="step-icon-lg">05</div>
-              <div><h3>Message Composer</h3><p>AI memilih template pesan berdasarkan profil lead</p></div>
-            </div>
-            <div class="template-tabs" id="templateTabs">
-              <button class="template-tab active" data-template="curiosity">🔮 Curiosity</button>
-              <button class="template-tab" data-template="painpoint">💡 Pain Point</button>
-              <button class="template-tab" data-template="datadriven">📈 Data Driven</button>
-              <button class="template-tab" data-template="socialproof">⭐ Social Proof</button>
-            </div>
-            <div class="msg-preview" id="msgPreview"></div>
-            <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
-              <div style="padding:10px 16px; border-radius:var(--radius-sm); background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); font-size:0.8rem; color:var(--accent-cyan);">
-                🎯 Template dipilih AI: <strong>Curiosity</strong>
-              </div>
-              <div style="padding:10px 16px; border-radius:var(--radius-sm); background:rgba(22,163,74,0.1); border:1px solid rgba(22,163,74,0.2); font-size:0.8rem; color:var(--accent-green);">
-                ✅ A/B Test: Variasi aktif
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 6: Multi-Channel DM -->
-          <div class="sim-step" id="step6">
-            <div class="step-header">
-              <div class="step-icon-lg">06</div>
-              <div><h3>Multi-Channel DM</h3><p>Pengiriman pesan ke semua platform secara simultan</p></div>
-            </div>
-            <div class="channel-grid" id="channelGrid">
-              <div class="channel-card" id="ch-tiktok">
-                <div class="ch-icon">🎵</div>
-                <div class="ch-info"><div class="ch-name">TikTok DM</div><div class="ch-status">Menunggu...</div></div>
-                <div class="ch-check" id="ch-tiktok-check">✓</div>
-              </div>
-              <div class="channel-card" id="ch-shopee">
-                <div class="ch-icon">🛍️</div>
-                <div class="ch-info"><div class="ch-name">Shopee Chat</div><div class="ch-status">Menunggu...</div></div>
-                <div class="ch-check" id="ch-shopee-check">✓</div>
-              </div>
-              <div class="channel-card" id="ch-instagram">
-                <div class="ch-icon">📸</div>
-                <div class="ch-info"><div class="ch-name">Instagram DM</div><div class="ch-status">Menunggu...</div></div>
-                <div class="ch-check" id="ch-instagram-check">✓</div>
-              </div>
-              <div class="channel-card" id="ch-email">
-                <div class="ch-icon">📧</div>
-                <div class="ch-info"><div class="ch-name">Email</div><div class="ch-status">Menunggu...</div></div>
-                <div class="ch-check" id="ch-email-check">✓</div>
-              </div>
-            </div>
-            <div class="delivery-report" id="deliveryReport" style="opacity:0">
-              <div style="font-weight:700; margin-bottom:12px; font-size:0.9rem;">📋 Delivery Report</div>
-              <div class="dr-row"><span class="dr-label">Total DM Terkirim</span><span class="dr-value good">847</span></div>
-              <div class="dr-row"><span class="dr-label">Tingkat Sukses</span><span class="dr-value good">98.2%</span></div>
-              <div class="dr-row"><span class="dr-label">Rata-rata Waktu Kirim</span><span class="dr-value">0.3 detik/DM</span></div>
-              <div class="dr-row"><span class="dr-label">Channel Tercepat</span><span class="dr-value">TikTok DM</span></div>
-            </div>
-          </div>
-
-          <!-- Summary -->
-          <div class="sim-step" id="stepSummary">
-            <div class="pipeline-summary">
-              <div class="summary-icon">✅</div>
-              <div class="summary-title">Pipeline Selesai!</div>
-              <div class="summary-stat" id="summaryStat">2,847 leads → 847 DM terkirim</div>
-              <div class="summary-detail">Waktu proses: 3 menit 24 detik</div>
-              <div style="margin-top:24px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-                <button class="btn btn-primary" id="replayPipeline">🔄 Jalankan Ulang</button>
-                <a href="#dashboard" class="btn btn-secondary">📊 Lihat Dashboard</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== DASHBOARD PREVIEW ===== -->
-  <section class="section alt-bg" id="dashboard">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <div class="section-badge">Dashboard Preview</div>
-        <h2 class="section-title">Tampilan <span class="gradient-text">Dashboard</span></h2>
-        <p class="section-subtitle">Monitor semua aktivitas pipeline, leads, dan analytics dalam satu tempat.</p>
-      </div>
-      <div class="dashboard-mock reveal">
-        <div class="dash-topbar">
-          <div class="sim-dots"><span class="sim-dot sim-dot-red"></span><span class="sim-dot sim-dot-yellow"></span><span class="sim-dot sim-dot-green"></span></div>
-          <span class="sim-title">NAVI Dashboard · app.navipro.id</span>
-          <div style="margin-left:auto; display:flex; align-items:center; gap:6px;"><span class="badge-dot"></span><span style="font-size:0.75rem; color:var(--accent-green);">Live</span></div>
-        </div>
-        <div class="dash-body">
-          <div class="dash-sidebar">
-            <div class="dash-sidebar-item active" data-tab="dashboard">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/></svg>
-              Dashboard
-            </div>
-            <div class="dash-sidebar-item" data-tab="leads">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/></svg>
-              Leads
-            </div>
-            <div class="dash-sidebar-item" data-tab="pipeline">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              Pipeline
-            </div>
-            <div class="dash-sidebar-item" data-tab="messages">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z" stroke="currentColor" stroke-width="2"/></svg>
-              Messages
-            </div>
-            <div class="dash-sidebar-item" data-tab="analytics">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              Analytics
-            </div>
-            <div class="dash-sidebar-item" data-tab="settings">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/></svg>
-              Settings
-            </div>
-          </div>
-          <div class="dash-main">
-            <div class="dash-metrics">
-              <div class="dash-metric-card"><div class="dm-label">Leads Hari Ini</div><div class="dm-value gradient-text">1,234</div><div class="dm-trend up">↑ 12% dari kemarin</div></div>
-              <div class="dash-metric-card"><div class="dm-label">Reply Rate</div><div class="dm-value" style="color:var(--accent-green)">78%</div><div class="dm-trend up">↑ 5% dari kemarin</div></div>
-              <div class="dash-metric-card"><div class="dm-label">DM Terkirim</div><div class="dm-value" style="color:var(--accent-cyan)">847</div><div class="dm-trend up">↑ 23% dari kemarin</div></div>
-              <div class="dash-metric-card"><div class="dm-label">Revenue Impact</div><div class="dm-value" style="color:var(--accent-amber)">Rp 45.2M</div><div class="dm-trend up">↑ 18% dari kemarin</div></div>
-            </div>
-            <div class="dash-chart">
-              <div class="dash-chart-title">📈 Lead Generation — 30 Hari Terakhir</div>
-              <svg viewBox="0 0 600 120" fill="none" preserveAspectRatio="none" style="width:100%; height:120px;">
-                <defs>
-                  <linearGradient id="dashFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/><stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/></linearGradient>
-                  <linearGradient id="dashLine" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                </defs>
-                <path d="M0 100 L20 95 L40 88 L60 90 L80 75 L100 72 L120 65 L140 60 L160 55 L180 50 L200 48 L220 42 L240 45 L260 38 L280 35 L300 30 L320 28 L340 32 L360 25 L380 22 L400 20 L420 25 L440 18 L460 15 L480 20 L500 16 L520 12 L540 15 L560 10 L580 8 L600 5 L600 120 L0 120Z" fill="url(#dashFill)"/>
-                <path d="M0 100 L20 95 L40 88 L60 90 L80 75 L100 72 L120 65 L140 60 L160 55 L180 50 L200 48 L220 42 L240 45 L260 38 L280 35 L300 30 L320 28 L340 32 L360 25 L380 22 L400 20 L420 25 L440 18 L460 15 L480 20 L500 16 L520 12 L540 15 L560 10 L580 8 L600 5" stroke="url(#dashLine)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div style="font-size:0.9rem; font-weight:600; margin-bottom:12px;">🎯 Leads Terbaru</div>
-            <table class="dash-table">
-              <thead><tr><th>Nama Toko</th><th>Platform</th><th>Score</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td>Fashion Corner ID</td><td>Tokopedia</td><td style="color:var(--accent-green); font-weight:600;">94</td><td><span class="status-badge sent">Terkirim</span></td></tr>
-                <tr><td>Gadget Mart</td><td>Shopee</td><td style="color:var(--accent-green); font-weight:600;">89</td><td><span class="status-badge sent">Terkirim</span></td></tr>
-                <tr><td>Beauty Glow Shop</td><td>TikTok Shop</td><td style="color:var(--accent-amber); font-weight:600;">72</td><td><span class="status-badge queued">Antrian</span></td></tr>
-                <tr><td>Home Decor Pro</td><td>Instagram</td><td style="color:var(--accent-green); font-weight:600;">85</td><td><span class="status-badge sent">Terkirim</span></td></tr>
-                <tr><td>Sneaker Zone</td><td>Tokopedia</td><td style="color:var(--accent-indigo); font-weight:600;">58</td><td><span class="status-badge new">Baru</span></td></tr>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th class="new-field">Business Type</th>
+                  <th class="new-field">Industry</th>
+                </tr>
+              </thead>
+              <tbody id="enrichTableBody">
               </tbody>
             </table>
-            <div class="dash-pipeline-status">
-              <div class="dash-agent-status"><span class="agent-dot"></span> Data Scraper <span style="margin-left:auto; color:var(--accent-cyan); font-weight:600; font-size:0.75rem;">2,847</span></div>
-              <div class="dash-agent-status"><span class="agent-dot"></span> Data Enricher <span style="margin-left:auto; color:var(--accent-green); font-weight:600; font-size:0.75rem;">2,847</span></div>
-              <div class="dash-agent-status"><span class="agent-dot"></span> AI Scorer <span style="margin-left:auto; color:var(--accent-cyan); font-weight:600; font-size:0.75rem;">1,234</span></div>
-              <div class="dash-agent-status"><span class="agent-dot"></span> URL Generator <span style="margin-left:auto; color:var(--accent-green); font-weight:600; font-size:0.75rem;">847</span></div>
-              <div class="dash-agent-status"><span class="agent-dot"></span> Msg Composer <span style="margin-left:auto; color:var(--accent-cyan); font-weight:600; font-size:0.75rem;">847</span></div>
-              <div class="dash-agent-status"><span class="agent-dot"></span> Multi-Channel DM <span style="margin-left:auto; color:var(--accent-green); font-weight:600; font-size:0.75rem;">847</span></div>
-            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SCREENSHOTS GALLERY ===== -->
-  <section class="section" id="screenshots">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <div class="section-badge">App Screenshots</div>
-        <h2 class="section-title">Tampilan <span class="gradient-text">Aplikasi</span></h2>
-        <p class="section-subtitle">Lihat preview tampilan NAVI Pro di berbagai halaman fitur.</p>
-      </div>
-      <div class="screenshots-grid reveal">
-        <!-- Screenshot 1 -->
-        <div class="screenshot-card" onclick="openLightbox(0)">
-          <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Dashboard Overview</span></div>
-          <div class="ss-content">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
-              <div style="padding:8px; background:rgba(59,130,246,0.1); border-radius:6px; font-size:0.65rem;"><div style="color:var(--text-tertiary);">Leads</div><div style="font-weight:700; color:var(--accent-cyan);">1,234</div></div>
-              <div style="padding:8px; background:rgba(22,163,74,0.1); border-radius:6px; font-size:0.65rem;"><div style="color:var(--text-tertiary);">Reply</div><div style="font-weight:700; color:var(--accent-green);">78%</div></div>
-            </div>
-            <div style="height:40px; background:linear-gradient(90deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2)); border-radius:6px;"></div>
-          </div>
-          <div class="ss-label">Dashboard Overview</div>
-        </div>
-        <!-- Screenshot 2 -->
-        <div class="screenshot-card" onclick="openLightbox(1)">
-          <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Lead Scoring Detail</span></div>
-          <div class="ss-content">
-            <div style="padding:12px; background:rgba(59,130,246,0.08); border-radius:8px; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-              <div style="width:36px; height:36px; border-radius:50%; background:var(--gradient-main); display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:white;">94</div>
-              <div style="font-size:0.7rem;"><div style="font-weight:600;">Fashion Corner ID</div><div style="color:var(--text-tertiary);">High Priority</div></div>
-            </div>
-            <div style="display:flex; gap:4px; height:6px;">
-              <div style="flex:18; background:var(--accent-green); border-radius:3px;"></div>
-              <div style="flex:22; background:var(--accent-cyan); border-radius:3px;"></div>
-              <div style="flex:23; background:var(--accent-indigo); border-radius:3px;"></div>
-              <div style="flex:27; background:var(--accent-purple); border-radius:3px;"></div>
-            </div>
-          </div>
-          <div class="ss-label">Lead Scoring Detail</div>
-        </div>
-        <!-- Screenshot 3 -->
-        <div class="screenshot-card" onclick="openLightbox(2)">
-          <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Pipeline Monitoring</span></div>
-          <div class="ss-content">
-            <div style="display:flex; gap:4px; margin-bottom:10px;">
-              <div style="flex:1; padding:6px; background:rgba(22,163,74,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-green);">01 ✓</div>
-              <div style="flex:1; padding:6px; background:rgba(22,163,74,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-green);">02 ✓</div>
-              <div style="flex:1; padding:6px; background:rgba(6,182,212,0.1); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--accent-cyan);">03 ⟳</div>
-              <div style="flex:1; padding:6px; background:rgba(15,23,42,0.03); border-radius:4px; text-align:center; font-size:0.6rem; color:var(--text-tertiary);">04</div>
-            </div>
-            <div style="height:30px; background:repeating-linear-gradient(90deg, rgba(59,130,246,0.05) 0px, rgba(59,130,246,0.05) 1px, transparent 1px, transparent 8px); border-radius:4px;"></div>
-          </div>
-          <div class="ss-label">Pipeline Monitoring</div>
-        </div>
-        <!-- Screenshot 4 -->
-        <div class="screenshot-card" onclick="openLightbox(3)">
-          <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Message Composer</span></div>
-          <div class="ss-content">
-            <div style="padding:10px; background:rgba(59,130,246,0.08); border-radius:6px; margin-bottom:8px; font-size:0.65rem; color:var(--text-secondary);">
-              Hai <span style="color:var(--accent-cyan);">[Nama]</span>, sistem AI kami mendeteksi potensi growth tinggi di toko Anda...
-            </div>
-            <div style="display:flex; gap:4px;">
-              <div style="flex:1; padding:4px; background:var(--gradient-glow); border:1px solid rgba(59,130,246,0.3); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--accent-cyan);">🔮 Curiosity</div>
-              <div style="flex:1; padding:4px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--text-tertiary);">💡 Pain Pt</div>
-              <div style="flex:1; padding:4px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:4px; font-size:0.55rem; text-align:center; color:var(--text-tertiary);">📈 Data</div>
-            </div>
-          </div>
-          <div class="ss-label">Message Composer</div>
-        </div>
-        <!-- Screenshot 5 -->
-        <div class="screenshot-card" onclick="openLightbox(4)">
-          <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Analytics Charts</span></div>
-          <div class="ss-content">
-            <svg viewBox="0 0 200 60" fill="none" style="width:100%; height:60px;">
-              <defs><linearGradient id="ssFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/><stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0 50 L30 40 L60 45 L90 20 L120 25 L150 10 L180 15 L200 8 L200 60 L0 60Z" fill="url(#ssFill)"/>
-              <path d="M0 50 L30 40 L60 45 L90 20 L120 25 L150 10 L180 15 L200 8" stroke="#06b6d4" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-            <div style="display:flex; gap:6px; margin-top:8px;">
-              <div style="flex:1; height:20px; background:rgba(22,163,74,0.15); border-radius:3px;"></div>
-              <div style="flex:1.5; height:20px; background:rgba(59,130,246,0.15); border-radius:3px;"></div>
-              <div style="flex:0.8; height:20px; background:rgba(6,182,212,0.15); border-radius:3px;"></div>
-            </div>
-          </div>
-          <div class="ss-label">Analytics Charts</div>
-        </div>
-        <!-- Screenshot 6 -->
-        <div class="screenshot-card" onclick="openLightbox(5)">
-          <div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">Settings</span></div>
-          <div class="ss-content">
-            <div style="margin-bottom:6px; padding:8px; background:var(--bg-glass); border-radius:6px; display:flex; justify-content:space-between; font-size:0.65rem;">
-              <span>Auto-scoring</span><span style="color:var(--accent-green);">Aktif</span>
-            </div>
-            <div style="margin-bottom:6px; padding:8px; background:var(--bg-glass); border-radius:6px; display:flex; justify-content:space-between; font-size:0.65rem;">
-              <span>Multi-channel DM</span><span style="color:var(--accent-green);">Aktif</span>
-            </div>
-            <div style="padding:8px; background:var(--bg-glass); border-radius:6px; display:flex; justify-content:space-between; font-size:0.65rem;">
-              <span>A/B Testing</span><span style="color:var(--accent-amber);">Trial</span>
-            </div>
-          </div>
-          <div class="ss-label">Pengaturan & Konfigurasi</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TECHNICAL ARCHITECTURE ===== -->
-  <section class="section alt-bg" id="architecture">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <div class="section-badge">Tech Stack</div>
-        <h2 class="section-title">Arsitektur <span class="gradient-text">Teknis</span></h2>
-        <p class="section-subtitle">Teknologi modern yang menjadi fondasi NAVI Pro.</p>
-      </div>
-      <div class="arch-diagram reveal">
-        <div class="arch-layer">
-          <div class="arch-layer-title">🎨 Frontend</div>
-          <div class="arch-node">Next.js 16<span class="arch-tooltip">React framework terbaru dengan App Router</span></div>
-          <div class="arch-node">React 19<span class="arch-tooltip">Library UI dengan Server Components</span></div>
-          <div class="arch-node">Tailwind CSS 4<span class="arch-tooltip">Utility-first CSS framework</span></div>
-          <div class="arch-node">TypeScript 5<span class="arch-tooltip">Type-safe JavaScript superset</span></div>
-        </div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">⚙️ Backend</div>
-          <div class="arch-node">Node.js 22<span class="arch-tooltip">Runtime JavaScript server-side</span></div>
-          <div class="arch-node">Python AI Services<span class="arch-tooltip">ML model serving & inference</span></div>
-          <div class="arch-node">Prisma ORM<span class="arch-tooltip">Type-safe database client</span></div>
-          <div class="arch-node">Redis Cache<span class="arch-tooltip">In-memory caching & queues</span></div>
-        </div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">🧠 AI / ML</div>
-          <div class="arch-node">TensorFlow<span class="arch-tooltip">Deep learning framework Google</span></div>
-          <div class="arch-node">Custom ML Models<span class="arch-tooltip">Model scoring 100-parameter</span></div>
-          <div class="arch-node">NLP Engine<span class="arch-tooltip">Pemrosesan bahasa natural</span></div>
-          <div class="arch-node">GPT Integration<span class="arch-tooltip">AI message composition</span></div>
-        </div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">🔗 Integrasi</div>
-          <div class="arch-node">Tokopedia API<span class="arch-tooltip">Data scraping marketplace #1</span></div>
-          <div class="arch-node">Shopee API<span class="arch-tooltip">E-commerce platform terbesar</span></div>
-          <div class="arch-node">TikTok Shop API<span class="arch-tooltip">Social commerce trending</span></div>
-          <div class="arch-node">Instagram Graph API<span class="arch-tooltip">Social media DM integration</span></div>
-        </div>
-        <div class="arch-layer">
-          <div class="arch-layer-title">☁️ Infrastruktur</div>
-          <div class="arch-node">AWS Cloud<span class="arch-tooltip">Cloud provider utama</span></div>
-          <div class="arch-node">Docker<span class="arch-tooltip">Containerization & microservices</span></div>
-          <div class="arch-node">Kubernetes<span class="arch-tooltip">Orchestration & auto-scaling</span></div>
-          <div class="arch-node">PostgreSQL<span class="arch-tooltip">Relational database utama</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== USAGE GUIDE ===== -->
-  <section class="section" id="guide">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <div class="section-badge">Panduan Penggunaan</div>
-        <h2 class="section-title">Langkah <span class="gradient-text">Memulai</span></h2>
-        <p class="section-subtitle">Dari setup hingga pipeline berjalan otomatis — hanya 6 langkah mudah.</p>
-      </div>
-      <div class="guide-steps reveal">
-        <div class="guide-step" data-step="1">
-          <div class="guide-step-header">
-            <div class="guide-step-num">1</div>
-            <div class="guide-step-title">Setup & Onboarding</div>
-            <div class="guide-step-time">5 menit</div>
-            <div class="guide-step-arrow">▼</div>
-          </div>
-          <div class="guide-step-body">
-            <div class="guide-step-content">
-              <ul>
-                <li>Buat akun NAVI Pro dengan email bisnis Anda</li>
-                <li>Konfirmasi email dan lengkapi profil perusahaan</li>
-                <li>Pilih paket yang sesuai kebutuhan (Starter, Growth, atau Enterprise)</li>
-                <li>Akses dashboard dan mulai konfigurasi awal</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="guide-step" data-step="2">
-          <div class="guide-step-header">
-            <div class="guide-step-num">2</div>
-            <div class="guide-step-title">Hubungkan Toko Anda</div>
-            <div class="guide-step-time">3 menit</div>
-            <div class="guide-step-arrow">▼</div>
-          </div>
-          <div class="guide-step-body">
-            <div class="guide-step-content">
-              <ul>
-                <li>Hubungkan akun Tokopedia, Shopee, atau TikTok Shop</li>
-                <li>Authorize akses API melalui OAuth yang aman</li>
-                <li>Data toko akan otomatis tersinkronisasi</li>
-                <li>Verifikasi data dan mulai proses scraping</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="guide-step" data-step="3">
-          <div class="guide-step-header">
-            <div class="guide-step-num">3</div>
-            <div class="guide-step-title">Konfigurasi Parameter Pipeline</div>
-            <div class="guide-step-time">5 menit</div>
-            <div class="guide-step-arrow">▼</div>
-          </div>
-          <div class="guide-step-body">
-            <div class="guide-step-content">
-              <ul>
-                <li>Tentukan target niche dan kategori produk</li>
-                <li>Atur wilayah target (Jakarta, Surabaya, Bandung, dll.)</li>
-                <li>Set range GMV minimum dan maksimum target lead</li>
-                <li>Konfigurasi jadwal scraping (frekuensi dan waktu)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="guide-step" data-step="4">
-          <div class="guide-step-header">
-            <div class="guide-step-num">4</div>
-            <div class="guide-step-title">Atur Threshold Scoring</div>
-            <div class="guide-step-time">3 menit</div>
-            <div class="guide-step-arrow">▼</div>
-          </div>
-          <div class="guide-step-body">
-            <div class="guide-step-content">
-              <ul>
-                <li>Sesuaikan bobot scoring: Rating, Volume, GMV, Growth</li>
-                <li>Set threshold High Priority (default: 80+)</li>
-                <li>Set threshold Medium Priority (default: 60-79)</li>
-                <li>Aktifkan auto-send untuk High Priority leads</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="guide-step" data-step="5">
-          <div class="guide-step-header">
-            <div class="guide-step-num">5</div>
-            <div class="guide-step-title">Pilih Template Pesan</div>
-            <div class="guide-step-time">5 menit</div>
-            <div class="guide-step-arrow">▼</div>
-          </div>
-          <div class="guide-step-body">
-            <div class="guide-step-content">
-              <ul>
-                <li>Pilih dari 4 template bawaan: Curiosity, Pain Point, Data Driven, Social Proof</li>
-                <li>Kustomisasi tone pesan (formal, casual, profesional)</li>
-                <li>Aktifkan A/B Testing untuk optimasi otomatis</li>
-                <li>Preview pesan sebelum pipeline berjalan</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="guide-step" data-step="6">
-          <div class="guide-step-header">
-            <div class="guide-step-num">6</div>
-            <div class="guide-step-title">Launch & Monitor</div>
-            <div class="guide-step-time">1 menit</div>
-            <div class="guide-step-arrow">▼</div>
-          </div>
-          <div class="guide-step-body">
-            <div class="guide-step-content">
-              <ul>
-                <li>Klik "Launch Pipeline" dan pipeline berjalan 24/7</li>
-                <li>Monitor real-time dari dashboard analytics</li>
-                <li>Terima notifikasi untuk leads High Priority</li>
-                <li>Review reply dan kelola follow-up otomatis</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="guide-progress reveal" style="margin-top:32px;">
-        <div class="progress-label"><span>Setup Completion</span><span id="progressPercent">0%</span></div>
-        <div class="progress-bar-track"><div class="progress-bar-fill" id="progressBar" style="width:0%"></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== COMPARISON ===== -->
-  <section class="section alt-bg" id="comparison">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <div class="section-badge">Perbandingan</div>
-        <h2 class="section-title">Sebelum vs <span class="gradient-text">Sesudah</span> NAVI Pro</h2>
-        <p class="section-subtitle">Lihat transformasi drastis dalam cara Anda menemukan dan menghubungi leads.</p>
-      </div>
-      <div class="comparison-grid reveal">
-        <div class="compare-card before">
-          <div class="compare-label">❌ Sebelum NAVI Pro</div>
-          <div class="compare-item"><span class="icon">⏰</span><div><strong>Manual Research</strong><br>6 jam/hari browsing marketplace</div></div>
-          <div class="compare-item"><span class="icon">🎲</span><div><strong>Inconsistent Leads</strong><br>Kualitas lead tidak menentu</div></div>
-          <div class="compare-item"><span class="icon">🤷</span><div><strong>Tanpa Scoring</strong><br>Semua lead diperlakukan sama</div></div>
-          <div class="compare-item"><span class="icon">📧</span><div><strong>Single Channel</strong><br>Hanya bisa DM satu platform</div></div>
-          <div class="compare-item"><span class="icon">📊</span><div><strong>Tanpa Analytics</strong><br>Tidak ada data untuk optimasi</div></div>
-        </div>
-        <div class="compare-card after">
-          <div class="compare-label">✅ Sesudah NAVI Pro</div>
-          <div class="compare-item"><span class="icon">⚡</span><div><strong>AI Automation</strong><br>0 jam — pipeline jalan 24/7</div></div>
-          <div class="compare-item"><span class="icon">🎯</span><div><strong>Quality Leads <strong style="color:var(--accent-green)">↑45%</strong></strong><br>AI filter leads berkualitas tinggi</div></div>
-          <div class="compare-item"><span class="icon">🏆</span><div><strong>Smart Scoring</strong><br>100-parameter ML scoring system</div></div>
-          <div class="compare-item"><span class="icon">🌐</span><div><strong>Multi-Channel</strong><br>4 platform sekaligus otomatis</div></div>
-          <div class="compare-item"><span class="icon">📈</span><div><strong>Real-time Analytics</strong><br>Dashboard lengkap dengan insights</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="cta-section" id="cta">
-    <div class="cta-orb cta-orb-1"></div>
-    <div class="cta-orb cta-orb-2"></div>
-    <div class="cta-content reveal">
-      <h2 class="cta-title">Siap Mencoba <span class="gradient-text">NAVI Pro</span>?</h2>
-      <p class="cta-subtitle">Mulai trial gratis 14 hari dan rasakan sendiri bagaimana AI mengubah lead generation Anda.</p>
-      <div class="cta-buttons">
-        <a href="#" class="btn btn-primary btn-large">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Mulai Trial Gratis 14 Hari
-        </a>
-        <a href="/" class="btn btn-secondary btn-large">← Kembali ke Beranda</a>
       </div>
     </div>
   </section>
@@ -1553,529 +611,95 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
-        <svg viewBox="0 0 40 40" fill="none"><rect x="2" y="10" width="36" height="20" rx="4" stroke="url(#fGrad)" stroke-width="2"/><path d="M8 18h8m-4 4v-8" stroke="url(#fGrad)" stroke-width="2" stroke-linecap="round"/><circle cx="28" cy="20" r="3" fill="url(#fGrad)"/><defs><linearGradient id="fGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs></svg>
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="2" y="10" width="36" height="20" rx="4" stroke="url(#footGrad)" stroke-width="2"/>
+          <defs><linearGradient id="footGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
         NAVI Pro
       </div>
-      <div class="footer-copy">&copy; 2025 NAVI Pro. AI Lead Generation Platform untuk E-commerce Indonesia.</div>
-      <a href="/" class="footer-link">Kembali ke Beranda →</a>
+      <div class="footer-copy">© 2026 NAVI Pro. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- ===== LIGHTBOX ===== -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <div class="lightbox-content" id="lightboxContent"></div>
-  </div>
-
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
-  (function() {
-    'use strict';
+    // Sample data untuk enricher table
+    const enricherData = [
+      { name: 'Budi Santoso', email: 'budi.santoso@fashion.id', phone: '+62812345678', business: 'Fashion Store', industry: 'Fashion & Apparel' },
+      { name: 'Siti Nurhaliza', email: 'siti.nur@elektronik.id', phone: '+62812345679', business: 'Electronics Store', industry: 'Electronics & Gadgets' },
+      { name: 'Ahmad Wijaya', email: 'ahmad.wijaya@fnb.id', phone: '+62812345680', business: 'Food & Beverage', industry: 'F&B' },
+      { name: 'Dewi Kusuma', email: 'dewi.kusuma@kosmetik.id', phone: '+62812345681', business: 'Beauty & Cosmetics', industry: 'Beauty' },
+      { name: 'Roni Hermawan', email: 'roni.herman@otomotif.id', phone: '+62812345682', business: 'Automotive Parts', industry: 'Automotive' },
+      { name: 'Linda Pratama', email: 'linda.prat@furniture.id', phone: '+62812345683', business: 'Furniture Store', industry: 'Home & Furniture' },
+      { name: 'Putra Wijaksono', email: 'putra.wijak@rental.id', phone: '+62812345684', business: 'Car Rental', industry: 'Transportation' },
+      { name: 'Yuni Marlina', email: 'yuni.marl@salon.id', phone: '+62812345685', business: 'Salon & Spa', industry: 'Beauty Services' },
+    ];
 
-    // ===== THEME TOGGLE =====
-    const html = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    
-    function getSystemTheme() {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // Populate enricher table dengan multiple rows
+    function populateEnricherTable() {
+      const tbody = document.getElementById('enrichTableBody');
+      tbody.innerHTML = '';
+      
+      enricherData.forEach((item, idx) => {
+        const row = document.createElement('tr');
+        row.style.animationDelay = `${idx * 0.1}s`;
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.email}</td>
+          <td>${item.phone}</td>
+          <td class="new-field">${item.business}</td>
+          <td class="new-field">${item.industry}</td>
+        `;
+        tbody.appendChild(row);
+      });
     }
-    
-    function resolveTheme() {
-      const stored = localStorage.getItem('theme');
-      if (stored === 'system') {
-        return getSystemTheme();
-      }
-      return stored || 'dark';
-    }
 
-    const savedTheme = resolveTheme();
-    html.setAttribute('data-theme', savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
-
-    // ===== NAVBAR SCROLL =====
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // ===== MOBILE MENU =====
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
-
-    // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          navMenu.classList.remove('open');
-        }
-      });
-    });
-
-    // ===== INTERSECTION OBSERVER =====
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('active'); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ===== DASHBOARD SIDEBAR =====
-    document.querySelectorAll('.dash-sidebar-item').forEach(item => {
-      item.addEventListener('click', () => {
-        document.querySelectorAll('.dash-sidebar-item').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-      });
-    });
-
-    // ===== GUIDE ACCORDION =====
-    document.querySelectorAll('.guide-step-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const step = header.parentElement;
-        const wasOpen = step.classList.contains('open');
-        document.querySelectorAll('.guide-step').forEach(s => s.classList.remove('open'));
-        if (!wasOpen) {
-          step.classList.add('open');
-          // Update progress
-          const stepNum = parseInt(step.dataset.step);
-          const pct = Math.round((stepNum / 6) * 100);
-          document.getElementById('progressBar').style.width = pct + '%';
-          document.getElementById('progressPercent').textContent = pct + '%';
-        }
-      });
-    });
-
-    // ===== LIGHTBOX =====
-    const screenshotCards = document.querySelectorAll('.screenshot-card');
-    window.openLightbox = function(idx) {
-      const card = screenshotCards[idx];
-      if (!card) return;
-      const content = card.querySelector('.ss-content').innerHTML;
-      const label = card.querySelector('.ss-label').textContent;
-      document.getElementById('lightboxContent').innerHTML =
-        '<div class="ss-browser-bar"><div class="ss-dots"><span class="ss-dot" style="background:#dc2626"></span><span class="ss-dot" style="background:#d97706"></span><span class="ss-dot" style="background:#16a34a"></span></div><span class="ss-title">' + label + '</span></div>' +
-        '<div class="ss-content" style="min-height:300px; padding:40px;">' + content + '</div>' +
-        '<div class="ss-label" style="padding:20px; font-size:1rem;">' + label + '</div>';
-      document.getElementById('lightbox').classList.add('open');
-    };
-    document.getElementById('lightboxClose').addEventListener('click', () => {
-      document.getElementById('lightbox').classList.remove('open');
-    });
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target === document.getElementById('lightbox')) {
-        document.getElementById('lightbox').classList.remove('open');
-      }
-    });
-
-    // ===== PIPELINE SIMULATOR =====
-    let currentStep = 0;
-    let pipelineRunning = false;
-
+    // Start Pipeline button handler
     const startBtn = document.getElementById('startPipeline');
-    const replayBtn = document.getElementById('replayPipeline');
-
-    function resetPipeline() {
-      currentStep = 0;
-      pipelineRunning = false;
-      document.querySelectorAll('.sim-step').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.step-pip').forEach(p => { p.classList.remove('active', 'done'); });
-      document.getElementById('simStart').style.display = 'flex';
-      document.getElementById('terminal1').innerHTML = '';
-      document.getElementById('scraperCount').textContent = '';
-      document.getElementById('enrichBody').innerHTML = '';
-      document.getElementById('scoreTotal').textContent = '0';
-      document.getElementById('scoreCircle').setAttribute('stroke-dashoffset', '100');
-      ['barR','barV','barG','barS'].forEach(id => document.getElementById(id).style.width = '0');
-      document.getElementById('scoreR').textContent = '0/20';
-      document.getElementById('scoreV').textContent = '0/25';
-      document.getElementById('scoreG').textContent = '0/25';
-      document.getElementById('scoreS').textContent = '0/30';
-      document.getElementById('scoreBadge').style.opacity = '0';
-      document.getElementById('leaderboard').innerHTML = '';
-      document.getElementById('urlOutput').innerHTML = '';
-      document.getElementById('trackingPixel').style.opacity = '0';
-      document.getElementById('msgPreview').innerHTML = '';
-      document.querySelectorAll('.channel-card').forEach(c => { c.classList.remove('sent'); c.querySelector('.ch-status').textContent = 'Menunggu...'; });
-      document.querySelectorAll('.ch-check').forEach(c => c.classList.remove('show'));
-      document.getElementById('deliveryReport').style.opacity = '0';
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        document.getElementById('simStart').style.display = 'none';
+        document.getElementById('step2').classList.add('active');
+        populateEnricherTable();
+      });
     }
 
-    startBtn.addEventListener('click', () => {
-      if (!pipelineRunning) {
-        startBtn.disabled = true;
-        startBtn.innerHTML = '⚙️ Sedang berjalan...';
-        resetPipeline();
-        runPipeline().then(() => {
-          startBtn.disabled = false;
-          startBtn.innerHTML = '▶ Mulai Pipeline';
-        });
-      }
-    });
-    replayBtn.addEventListener('click', () => {
-      if (!pipelineRunning) {
-        replayBtn.disabled = true;
-        replayBtn.innerHTML = '⚙️ Sedang berjalan...';
-        resetPipeline();
-        runPipeline().then(() => {
-          replayBtn.disabled = false;
-          replayBtn.innerHTML = '🔄 Ulangi Pipeline';
-        });
-      }
-    });
-
-    function showStep(stepNum) {
-      document.querySelectorAll('.sim-step').forEach(s => s.classList.remove('active'));
-      const el = document.getElementById('step' + stepNum);
-      if (el) el.classList.add('active');
-      // Update pips
-      document.querySelectorAll('.step-pip').forEach(p => {
-        const s = parseInt(p.dataset.step);
-        p.classList.remove('active', 'done');
-        if (s < stepNum) p.classList.add('done');
-        else if (s === stepNum) p.classList.add('active');
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
       });
     }
 
     // Mobile menu toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const navbar = document.getElementById('navbar');
-    
-    navToggle?.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navMenu.classList.remove('open');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navMenu.classList.toggle('open');
       });
-    });
-
-    // Navbar scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 50) {
-        navbar?.classList.add('scrolled');
-      } else {
-        navbar?.classList.remove('scrolled');
-      }
-      lastScroll = scrollTop;
-    });
-
-    async function runPipeline() {
-      pipelineRunning = true;
-      document.getElementById('simStart').style.display = 'none';
-
-      // Step 1: Data Scraper
-      showStep(1);
-      await runScraper();
-
-      // Step 2: Data Enricher
-      showStep(2);
-      await runEnricher();
-
-      // Step 3: AI Scorer
-      showStep(3);
-      await runScorer();
-
-      // Step 4: URL Generator
-      showStep(4);
-      await runURLGen();
-
-      // Step 5: Message Composer
-      showStep(5);
-      await runComposer();
-
-      // Step 6: Multi-Channel DM
-      showStep(6);
-      await runMultiChannel();
-
-      // Summary
-      showStep('Summary');
-      document.querySelectorAll('.step-pip').forEach(p => { p.classList.remove('active'); p.classList.add('done'); });
-      pipelineRunning = false;
     }
 
-    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-    // Step 1: Data Scraper
-    async function runScraper() {
-      const terminal = document.getElementById('terminal1');
-      const lines = [
-        { text: '$ navi scraper --start --platforms tokopedia,shopee,tiktok,instagram', cls: 't-cyan' },
-        { text: '', cls: '' },
-        { text: '[INIT] Menghubungkan ke Tokopedia API...', cls: 't-dim' },
-        { text: '[OK]   Tokopedia API connected ✓', cls: 't-green' },
-        { text: '[INIT] Menghubungkan ke Shopee API...', cls: 't-dim' },
-        { text: '[OK]   Shopee API connected ✓', cls: 't-green' },
-        { text: '[INIT] Menghubungkan ke TikTok Shop API...', cls: 't-dim' },
-        { text: '[OK]   TikTok Shop API connected ✓', cls: 't-green' },
-        { text: '[INIT] Menghubungkan ke Instagram Graph API...', cls: 't-dim' },
-        { text: '[OK]   Instagram Graph API connected ✓', cls: 't-green' },
-        { text: '', cls: '' },
-        { text: '─── Scraping Data ───', cls: 't-purple t-bold' },
-        { text: 'Scraping Tokopedia... Fashion Corner ID | ★4.9 | 12.5K orders | GMV Rp 2.3M/bulan', cls: '' },
-        { text: 'Scraping Shopee...     Gadget Mart Official | ★4.8 | 8.2K orders | GMV Rp 5.1M/bulan', cls: '' },
-        { text: 'Scraping TikTok...     Beauty Glow Shop | ★4.7 | 15.3K orders | GMV Rp 1.8M/bulan', cls: '' },
-        { text: 'Scraping Instagram...  Home Decor Pro | ★4.6 | 6.1K orders | GMV Rp 3.4M/bulan', cls: '' },
-        { text: 'Scraping Tokopedia...  Sneaker Zone ID | ★4.5 | 9.7K orders | GMV Rp 4.2M/bulan', cls: '' },
-        { text: 'Scraping Shopee...     Fashion Avenue | ★4.8 | 11.2K orders | GMV Rp 2.7M/bulan', cls: '' },
-        { text: 'Scraping TikTok...     Gadget Planet | ★4.9 | 20.1K orders | GMV Rp 8.5M/bulan', cls: '' },
-        { text: '... 2,840 leads lainnya sedang diproses', cls: 't-dim' },
-        { text: '', cls: '' },
-        { text: '─── Data Cleansing ───', cls: 't-purple t-bold' },
-        { text: '[CLEAN] Removing duplicates: 142 entries removed', cls: 't-yellow' },
-        { text: '[CLEAN] Format standardization: 100% complete', cls: 't-yellow' },
-        { text: '[CLEAN] Data validation: 2,847 valid leads', cls: 't-yellow' },
-        { text: '', cls: '' },
-        { text: '✅ Scraping selesai! 2,847 leads terkumpul', cls: 't-green t-bold' },
-      ];
-
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        const div = document.createElement('div');
-        div.className = line.cls;
-        div.textContent = line.text;
-        if (i === lines.length - 1) div.classList.add('cursor-blink');
-        terminal.appendChild(div);
-        terminal.scrollTop = terminal.scrollHeight;
-        await sleep(120);
-      }
-
-      // Animate count
-      const countEl = document.getElementById('scraperCount');
-      for (let c = 0; c <= 2847; c += 97) {
-        countEl.textContent = c.toLocaleString('id-ID');
-        await sleep(15);
-      }
-      countEl.textContent = '2,847';
-      await sleep(500);
-    }
-
-    // Step 2: Data Enricher
-    async function runEnricher() {
-      const tbody = document.getElementById('enrichBody');
-      const leads = [
-        { name: 'Fashion Corner ID', platform: 'Tokopedia', rating: '4.9', niche: 'Fashion & Apparel', gmv: 'Rp 2.3M/bln', growth: '↑ 34%' },
-        { name: 'Gadget Mart Official', platform: 'Shopee', rating: '4.8', niche: 'Electronics', gmv: 'Rp 5.1M/bln', growth: '↑ 28%' },
-        { name: 'Beauty Glow Shop', platform: 'TikTok Shop', rating: '4.7', niche: 'Beauty & Wellness', gmv: 'Rp 1.8M/bln', growth: '↑ 45%' },
-        { name: 'Home Decor Pro', platform: 'Instagram', rating: '4.6', niche: 'Home & Living', gmv: 'Rp 3.4M/bln', growth: '↑ 22%' },
-        { name: 'Sneaker Zone ID', platform: 'Tokopedia', rating: '4.5', niche: 'Fashion & Apparel', gmv: 'Rp 4.2M/bln', growth: '↑ 19%' },
-      ];
-
-      for (let i = 0; i < leads.length; i++) {
-        const lead = leads[i];
-        const tr = document.createElement('tr');
-        tr.innerHTML =
-          '<td>' + lead.name + '</td>' +
-          '<td>' + lead.platform + '</td>' +
-          '<td>★ ' + lead.rating + '</td>' +
-          '<td class="new-field">' + lead.niche + '</td>' +
-          '<td class="new-field">' + lead.gmv + '</td>' +
-          '<td class="new-field">' + lead.growth + '</td>';
-        tbody.appendChild(tr);
-        await sleep(400);
-      }
-      await sleep(500);
-    }
-
-    // Step 3: AI Scorer
-    async function runScorer() {
-      // Animate scores
-      const scores = { r: 18, v: 22, g: 23, s: 27 };
-      const maxScores = { r: 20, v: 25, g: 25, s: 30 };
-      const total = 90;
-
-      // Animate bar fills
-      await sleep(200);
-      document.getElementById('barR').style.width = (scores.r / maxScores.r * 100) + '%';
-      document.getElementById('scoreR').textContent = scores.r + '/' + maxScores.r;
-      await sleep(300);
-      document.getElementById('barV').style.width = (scores.v / maxScores.v * 100) + '%';
-      document.getElementById('scoreV').textContent = scores.v + '/' + maxScores.v;
-      await sleep(300);
-      document.getElementById('barG').style.width = (scores.g / maxScores.g * 100) + '%';
-      document.getElementById('scoreG').textContent = scores.g + '/' + maxScores.g;
-      await sleep(300);
-      document.getElementById('barS').style.width = (scores.s / maxScores.s * 100) + '%';
-      document.getElementById('scoreS').textContent = scores.s + '/' + maxScores.s;
-      await sleep(300);
-
-      // Animate total score
-      for (let s = 0; s <= total; s++) {
-        document.getElementById('scoreTotal').textContent = s;
-        const offset = 100 - (s / 100 * 100);
-        document.getElementById('scoreCircle').setAttribute('stroke-dashoffset', offset);
-        await sleep(15);
-      }
-      document.getElementById('scoreBadge').style.opacity = '1';
-      await sleep(300);
-
-      // Leaderboard
-      const lb = document.getElementById('leaderboard');
-      const leaders = [
-        { name: 'Fashion Corner ID', score: 94, priority: 'high' },
-        { name: 'Gadget Mart Official', score: 89, priority: 'high' },
-        { name: 'Home Decor Pro', score: 72, priority: 'medium' },
-        { name: 'Beauty Glow Shop', score: 65, priority: 'medium' },
-        { name: 'Sneaker Zone ID', score: 58, priority: 'medium' },
-      ];
-      const ranks = ['gold', 'silver', 'bronze', '', ''];
-
-      for (let i = 0; i < leaders.length; i++) {
-        const l = leaders[i];
-        const div = document.createElement('div');
-        div.className = 'lb-row';
-        div.innerHTML =
-          '<div class="lb-rank ' + (ranks[i] || '') + '">' + (i + 1) + '</div>' +
-          '<div class="lb-name">' + l.name + '</div>' +
-          '<div class="lb-score">' + l.score + '/100</div>' +
-          '<div class="lb-priority ' + l.priority + '">' + (l.priority === 'high' ? 'Instant Send' : 'Queued') + '</div>';
-        lb.appendChild(div);
-        await sleep(200);
-      }
-      await sleep(500);
-    }
-
-    // Step 4: URL Generator
-    async function runURLGen() {
-      const output = document.getElementById('urlOutput');
-      const lines = [
-        { label: 'Base URL', value: 'https://demo.navipro.id', cls: '' },
-        { label: 'Lead ID', value: 'LD-2847-FSH-001', cls: 'highlight' },
-        { label: 'Track ID', value: 'TRK-' + Math.random().toString(36).substr(2, 8).toUpperCase(), cls: 'highlight' },
-        { label: 'UTM Source', value: 'navi-pipeline', cls: '' },
-        { label: 'UTM Medium', value: 'ai-dm', cls: '' },
-        { label: 'UTM Campaign', value: 'q1-2025-outreach', cls: '' },
-        { label: 'Full URL', value: 'https://demo.navipro.id/l/LD-2847-FSH-001?ref=ai-dm&utm_source=navi-pipeline', cls: 'highlight' },
-      ];
-
-      for (const line of lines) {
-        const div = document.createElement('div');
-        div.className = 'url-line';
-        div.innerHTML = '<span class="label">' + line.label + '</span><span class="value ' + line.cls + '">' + line.value + '</span>';
-        output.appendChild(div);
-        await sleep(300);
-      }
-
-      // QR placeholder animation
-      document.getElementById('qrArea').style.borderColor = 'var(--accent-green)';
-      document.getElementById('qrArea').innerHTML = '✅ QR Generated<br><span style="font-size:0.6rem; color:var(--text-tertiary);">siap untuk dicetak</span>';
-
-      await sleep(300);
-      document.getElementById('trackingPixel').style.opacity = '1';
-      await sleep(500);
-    }
-
-    // Step 5: Message Composer
-    async function runComposer() {
-      const templates = {
-        curiosity: {
-          from: 'NAVI Pro AI → Fashion Corner ID (TikTok DM)',
-          body: 'Hai <span class="dynamic">Fashion Corner ID</span>! 👋\n\nSistem AI kami mendeteksi toko Anda memiliki potensi <span class="metric">growth 34%</span> dalam kategori Fashion & Apparel di TikTok Shop.\n\nKami sudah menyiapkan demo personalized yang menunjukkan bagaimana seller serupa berhasil meningkatkan DM response rate hingga <span class="metric">3x lipat</span>.\n\nMau lihat demonya? Cukup klik link di bawah! 🚀\n→ demo.navipro.id/l/LD-2847-FSH-001'
-        },
-        painpoint: {
-          from: 'NAVI Pro AI → Fashion Corner ID (Shopee Chat)',
-          body: 'Hai <span class="dynamic">Fashion Corner ID</span>,\n\nSeller di level GMV <span class="metric">Rp 2.3M/bulan</span> biasanya menghadapi tantangan scaling — terutama di akuisisi customer baru.\n\nKami menganalisis <span class="metric">847 toko serupa</span> dan menemukan pola: seller yang otomatisasi outreach mereka rata-rata <span class="metric">naik 180%</span> dalam 3 bulan.\n\nIni solusi yang bisa langsung Anda coba → demo.navipro.id/l/LD-2847-FSH-001'
-        },
-        datadriven: {
-          from: 'NAVI Pro AI → Fashion Corner ID (Email)',
-          body: 'Data Insights untuk <span class="dynamic">Fashion Corner ID</span> 📊\n\n• Rating Anda: <span class="metric">4.9/5.0</span> (Top 5% di kategori)\n• Order Volume: <span class="metric">12.5K</span> (Above average)\n• Growth Signal: <span class="metric">↑34%</span> (Strong momentum)\n• AI Score: <span class="metric">94/100</span> (High Priority)\n\nBerdasarkan analisis 2,847 toxo serupa, strategi outreach otomatis bisa meningkatkan conversion Anda hingga <span class="metric">2.8x</span>.\n\nLihat demo data-driven → demo.navipro.id/l/LD-2847-FSH-001'
-        },
-        socialproof: {
-          from: 'NAVI Pro AI → Fashion Corner ID (Instagram DM)',
-          body: 'Hai <span class="dynamic">Fashion Corner ID</span>! ⭐\n\nSeller Fashion lainnya sudah merasakan hasilnya:\n\n"<span class="metric">Dalam 2 minggu pertama, leads naik 3x lipat. 70% langsung booking demo!</span>" — Andi Rizky, Fashion Store Owner\n\n"<span class="metric">Revenue naik 180% dalam 3 bulan!</span>" — Dewi Sartika, Electronics Reseller\n\nAnda bisa jadi yang berikutnya. Lihat bagaimana caranya → demo.navipro.id/l/LD-2847-FSH-001'
-        }
-      };
-
-      function renderTemplate(name) {
-        const t = templates[name];
-        const preview = document.getElementById('msgPreview');
-        preview.innerHTML =
-          '<div class="msg-from">Dari: ' + t.from + '</div>' +
-          '<div class="msg-body">' + t.body.replace(/\n/g, '<br>') + '</div>';
-      }
-
-      // Show default
-      renderTemplate('curiosity');
-
-      // Tab click handlers
-      document.querySelectorAll('.template-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-          document.querySelectorAll('.template-tab').forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          renderTemplate(tab.dataset.template);
-        });
-      });
-
-      await sleep(800);
-    }
-
-    // Step 6: Multi-Channel DM
-    async function runMultiChannel() {
-      const channels = [
-        { id: 'tiktok', name: 'TikTok DM', delay: 600 },
-        { id: 'shopee', name: 'Shopee Chat', delay: 500 },
-        { id: 'instagram', name: 'Instagram DM', delay: 700 },
-        { id: 'email', name: 'Email', delay: 400 },
-      ];
-
-      for (const ch of channels) {
-        const card = document.getElementById('ch-' + ch.id);
-        card.querySelector('.ch-status').textContent = 'Mengirim...';
-        card.querySelector('.ch-status').style.color = 'var(--accent-amber)';
-        await sleep(ch.delay);
-        card.classList.add('sent');
-        card.querySelector('.ch-status').textContent = 'Terkirim ✓';
-        card.querySelector('.ch-status').style.color = 'var(--accent-green)';
-        document.getElementById('ch-' + ch.id + '-check').classList.add('show');
-        await sleep(200);
-      }
-
-      // Show delivery report
-      await sleep(400);
-      document.getElementById('deliveryReport').style.opacity = '1';
-      await sleep(500);
-    }
-
-    // ===== COUNTER ANIMATION =====
-    function animateCounter(el, target, suffix) {
-      let current = 0;
-      const step = Math.ceil(target / 40);
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= target) { current = target; clearInterval(interval); }
-        el.textContent = current.toLocaleString('id-ID') + (suffix || '');
-      }, 30);
-    }
-
-    // Observe metric values
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !e.target.dataset.counted) {
-          e.target.dataset.counted = 'true';
-          const val = parseInt(e.target.textContent.replace(/[^0-9]/g, ''));
-          if (!isNaN(val) && val > 0) {
-            const suffix = e.target.textContent.replace(/[0-9,.]/g, '');
-            animateCounter(e.target, val, suffix);
-          }
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
         }
       });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.dm-value').forEach(el => counterObserver.observe(el));
+    }, { threshold: 0.1 });
 
-  })();
+    revealElements.forEach(el => observer.observe(el));
+
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
   </script>
 </body>
 </html>
