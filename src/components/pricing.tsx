@@ -82,29 +82,29 @@ export function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Harga</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-primary">Harga</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground">
             Pilih Paket yang <span className="gradient-text">Tepat untuk Anda</span>
           </h2>
 
           {/* Billing toggle */}
           <div className="flex items-center justify-center gap-3">
-            <Label htmlFor="billing" className={`text-sm ${!yearly ? 'text-white font-medium' : 'text-slate-500'}`}>
+            <Label htmlFor="billing" className={`text-sm ${!yearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
               Bulanan
             </Label>
             <Switch
               id="billing"
               checked={yearly}
               onCheckedChange={setYearly}
-              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-blue-600 data-[state=checked]:to-cyan-500"
+              className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-primary data-[state=checked]:to-chart-2"
             />
-            <Label htmlFor="billing" className={`text-sm ${yearly ? 'text-white font-medium' : 'text-slate-500'}`}>
+            <Label htmlFor="billing" className={`text-sm ${yearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
               Tahunan
             </Label>
             {yearly && (
-              <span className="text-xs font-medium text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
+              <span className="text-xs font-medium text-chart-2 bg-chart-2/10 px-2 py-0.5 rounded-full border border-chart-2/20">
                 Hemat 30%
               </span>
             )}
@@ -123,34 +123,34 @@ export function Pricing() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`glass-card rounded-xl border bg-slate-900/50 p-6 transition-all duration-300 relative neon-border-glow ${
                   plan.popular
-                    ? 'border-blue-500/40 shadow-xl shadow-blue-500/10 md:-translate-y-4'
-                    : 'border-blue-500/15 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5'
+                    ? 'border-primary/40 shadow-xl shadow-primary/10 md:-translate-y-4'
+                    : 'border-primary/15 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg shadow-blue-500/25">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-chart-2 text-primary-foreground text-xs font-medium px-3 py-1 rounded-full shadow-lg shadow-primary/25">
                     Most Popular
                   </div>
                 )}
 
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.gradient} flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.gradient} flex items-center justify-center mb-4 shadow-lg shadow-primary/20`}>
+                  <Icon className="w-6 h-6 text-primary-foreground" />
                 </div>
 
-                <h3 className="text-xl font-bold mb-1 text-white">{plan.name}</h3>
+                <h3 className="text-xl font-bold mb-1 text-foreground">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-2">
                   <span className="text-3xl font-black gradient-text">
                     {yearly ? plan.yearlyPrice : plan.monthlyPrice}
                   </span>
-                  <span className="text-sm text-slate-500">{plan.period}</span>
+                  <span className="text-sm text-muted-foreground">{plan.period}</span>
                 </div>
-                <p className="text-sm text-slate-400 mb-6">{plan.description}</p>
+                <p className="text-sm text-muted-foreground mb-6">{plan.description}</p>
 
                 <Button
                   className={`w-full mb-6 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90 shadow-lg shadow-blue-500/25'
-                      : 'border border-blue-500/20 text-slate-300 hover:bg-blue-500/10 hover:text-blue-300 hover:border-blue-500/30'
+                      ? 'bg-gradient-to-r from-primary to-chart-2 text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/25'
+                      : 'border border-primary/20 text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30'
                   }`}
                   variant={plan.popular ? 'default' : 'outline'}
                 >
@@ -159,8 +159,8 @@ export function Pricing() {
 
                 <ul className="space-y-3">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-slate-300">
-                      <Check className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                    <li key={feature} className="flex items-center gap-2 text-sm text-card-foreground/70">
+                      <Check className="w-4 h-4 text-chart-2 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}

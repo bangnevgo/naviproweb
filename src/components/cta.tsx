@@ -15,15 +15,15 @@ export function CTA() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute top-10 left-10 w-40 h-40 rounded-full opacity-15 blur-3xl"
-          style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }}
+          style={{ background: 'radial-gradient(circle, var(--color-primary), transparent)' }}
         />
         <div
           className="absolute bottom-10 right-20 w-60 h-60 rounded-full opacity-15 blur-3xl"
-          style={{ background: 'radial-gradient(circle, #06b6d4, transparent)' }}
+          style={{ background: 'radial-gradient(circle, var(--chart-2), transparent)' }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-10 blur-3xl"
-          style={{ background: 'radial-gradient(circle, #8b5cf6, transparent)' }}
+          style={{ background: 'radial-gradient(circle, var(--chart-3), transparent)' }}
         />
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-bg opacity-30" />
@@ -36,12 +36,12 @@ export function CTA() {
           transition={{ duration: 0.5 }}
           className="space-y-6"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm">
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-blue-300">Siap Tingkatkan Penjualan?</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-primary/80">Siap Tingkatkan Penjualan?</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight">
             Mulai Cari Calon Pembeli <br />
             <span className="gradient-text-shimmer">Otomatis Hari Ini</span>
           </h2>
@@ -50,7 +50,7 @@ export function CTA() {
             <a href="/demo.html">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90 gap-2 text-base px-6 shadow-lg shadow-blue-500/25"
+                className="bg-gradient-to-r from-primary to-chart-2 text-primary-foreground hover:opacity-90 gap-2 text-base px-6 shadow-lg shadow-primary/25"
               >
                 <Zap className="w-5 h-5" />
                 Coba Gratis 14 Hari
@@ -60,7 +60,7 @@ export function CTA() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-blue-500/20 text-slate-300 hover:bg-blue-500/10 hover:text-blue-300 gap-2 text-base px-6"
+                className="border-primary/20 text-muted-foreground hover:bg-primary/10 hover:text-primary gap-2 text-base px-6"
               >
                 Jadwalkan Demo
                 <ArrowRight className="w-4 h-4" />
@@ -68,7 +68,7 @@ export function CTA() {
             </a>
           </div>
 
-          <p className="text-sm text-slate-500 pt-2">
+          <p className="text-sm text-muted-foreground pt-2">
             Tidak perlu kartu kredit · Setup 5 menit · Batalkan kapan saja
           </p>
         </motion.div>

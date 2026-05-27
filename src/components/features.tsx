@@ -18,10 +18,10 @@ function SmartScoringCard() {
       {scores.map((score) => (
         <div key={score.label} className="space-y-1">
           <div className="flex justify-between text-xs">
-            <span className="text-slate-300">{score.label}</span>
-            <span className="text-slate-500">{score.points}pts</span>
+            <span className="text-card-foreground/70">{score.label}</span>
+            <span className="text-muted-foreground">{score.points}pts</span>
           </div>
-          <div className="h-2 rounded-full bg-slate-800 overflow-hidden">
+          <div className="h-2 rounded-full bg-muted overflow-hidden">
             <div
               className={`h-full rounded-full bg-gradient-to-r ${score.color} score-bar`}
               style={{ '--bar-width': score.width } as React.CSSProperties}
@@ -44,12 +44,12 @@ function PriorityAutomationCard() {
     <div className="space-y-3">
       <h4 className="text-sm font-semibold gradient-text">Priority List</h4>
       {priorities.map((p) => (
-        <div key={p.label} className="flex items-center justify-between p-2 rounded-lg bg-blue-500/5 border border-blue-500/10">
+        <div key={p.label} className="flex items-center justify-between p-2 rounded-lg bg-primary/5 border border-primary/10">
           <div className="flex items-center gap-2">
             <span className={`w-2 h-2 rounded-full ${p.color}`} />
-            <span className="text-sm font-medium text-slate-300">{p.label}</span>
+            <span className="text-sm font-medium text-card-foreground/70">{p.label}</span>
           </div>
-          <span className="text-xs text-slate-500">{p.action}</span>
+          <span className="text-xs text-muted-foreground">{p.action}</span>
         </div>
       ))}
     </div>
@@ -67,9 +67,9 @@ function AIMessageTemplatesCard() {
     <div className="space-y-2">
       <h4 className="text-sm font-semibold gradient-text">Template Preview</h4>
       {templates.map((t) => (
-        <div key={t.name} className="p-2 rounded-lg bg-blue-500/5 border border-blue-500/10">
-          <p className="text-xs font-medium mb-0.5 text-slate-300">{t.name}</p>
-          <p className="text-[10px] text-slate-500 line-clamp-1">{t.preview}</p>
+        <div key={t.name} className="p-2 rounded-lg bg-primary/5 border border-primary/10">
+          <p className="text-xs font-medium mb-0.5 text-card-foreground/70">{t.name}</p>
+          <p className="text-[10px] text-muted-foreground line-clamp-1">{t.preview}</p>
         </div>
       ))}
     </div>
@@ -87,9 +87,9 @@ function AnalyticsDashboardCard() {
   return (
     <div className="grid grid-cols-2 gap-2">
       {metrics.map((m) => (
-        <div key={m.label} className="p-2 rounded-lg bg-blue-500/5 text-center border border-blue-500/10">
+        <div key={m.label} className="p-2 rounded-lg bg-primary/5 text-center border border-primary/10">
           <p className={`text-lg font-bold ${m.color}`}>{m.value}</p>
-          <p className="text-[10px] text-slate-500">{m.label}</p>
+          <p className="text-[10px] text-muted-foreground">{m.label}</p>
         </div>
       ))}
     </div>
@@ -128,7 +128,7 @@ export function Features() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section id="features" className="py-20 lg:py-28 bg-[#0c1025]" ref={sectionRef}>
+    <section id="features" className="py-20 lg:py-28 bg-background" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -137,8 +137,8 @@ export function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm mb-4">
-            <span className="text-blue-400">Fitur Unggulan</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm mb-4">
+            <span className="text-primary">Fitur Unggulan</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Mengapa Ribuan Seller <span className="gradient-text">Memilih NAVI Pro</span>
@@ -155,11 +155,11 @@ export function Features() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-xl border border-blue-500/15 bg-slate-900/50 p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 neon-border-glow"
+                className="glass-card rounded-xl border border-primary/15 bg-slate-900/50 p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 neon-border-glow"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                    <Icon className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-chart-2 flex items-center justify-center shadow-lg shadow-primary/20">
+                    <Icon className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-bold text-white">{card.title}</h3>
                 </div>
